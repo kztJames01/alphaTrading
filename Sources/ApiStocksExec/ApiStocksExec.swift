@@ -14,7 +14,7 @@ struct ApiStocksExec{
                 "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
         ]
         
-        let urlString = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/get-quotes?region=US&symbols=AMD%2CIBM%2CAAPL"
+        let urlString = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/"
         
         guard let url = URL(string: urlString) else{
             print("Invalid URL.")
@@ -30,7 +30,6 @@ struct ApiStocksExec{
             
             if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode){
                 print("HTTP Error: \(httpResponse.statusCode)")
-                return
             }
             
             let quoteResponse = try JSONDecoder().decode(QuoteResponse.self, from: data)

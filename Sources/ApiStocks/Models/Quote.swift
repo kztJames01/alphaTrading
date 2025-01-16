@@ -11,13 +11,14 @@ public struct QuoteResponse: Decodable {
     
     public let data: [Quote]?
     public let error: ErrorResponse?
+    public let message: String?
     
-    enum CodingKeys: CodingKey{
+    enum CodingKeys: String,CodingKey{
         case quoteResponse
-        case finance
+        case message
     }
     
-    enum ResponseKeys: CodingKey{
+    enum ResponseKeys: String,CodingKey{
         case result
         case error
     }
@@ -32,16 +33,18 @@ public struct QuoteResponse: Decodable {
             quoteResponseContainer.decodeIfPresent([Quote].self, forKey: .result)
             self.error = try?
             quoteResponseContainer.decodeIfPresent(ErrorResponse.self, forKey: .error)
-        }else if let financeResponseContainer = try?
-                    container.nestedContainer(keyedBy: ResponseKeys.self, forKey: .finance){
-            self.data = try?
-            financeResponseContainer.decodeIfPresent(
-                [Quote].self,forKey: .result)
-            self.error = try?
-            financeResponseContainer.decodeIfPresent(ErrorResponse.self, forKey: .error)
+            self.message = nil
+            
+        }else if let messageResponse = try?
+                    container.decode(String.self,forKey: .message){
+            self.data = nil
+            self.error = nil
+            self.message = messageResponse
+            
         } else{
             self.data = nil
             self.error = nil
+            self.message = nil
         }
     }
 }
