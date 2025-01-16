@@ -11,34 +11,46 @@ struct ApiStocksExec{
     static func main() async{
         let headers = [
             "x-rapidapi-key": "c5d836857cmshba68fc722dba282p1df907jsn5110b8a4e164",
-                "x-rapidapi-host": "yahoo-finance15.p.rapidapi.com"
+            "x-rapidapi-host": "yahoo-finance15.p.rapidapi.com"
         ]
         
-        let urlString = "https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/quotes?ticker=AAPL"
+        let quoteURL = "https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/quotes?"
+        
+        let searchURL = "https://yahoo-fianance15.p.rapidapi.com/api/v1/markets/search?"
+        
+        
+        if let quoteResponse = await fetchRequest(urlString: quoteURL, headers: headers, decodeType: QuoteResponse.self){
+            print(quoteResponse)
+        }
+        print("            ")
+        if let searchResponse = await fetchRequest(urlString: searchURL, headers: headers, decodeType: SearchTicker.self){
+            print(searchResponse)
+        }
+        
+    }
+    static func fetchRequest<T: Decodable>(urlString: String, headers: [String: String], decodeType: T.Type) async -> T?{
         
         guard let url = URL(string: urlString) else{
             print("Invalid URL.")
-            return
+            return nil
         }
         
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
         do {
-            var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-            request.allHTTPHeaderFields = headers
-            
             let (data, response) = try! await URLSession.shared.data(for: request)
             
             if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode){
                 print("HTTP Error: \(httpResponse.statusCode)")
+                return nil
             }
             
-            let quoteResponse = try JSONDecoder().decode(QuoteResponse.self, from: data)
-            
-            print(quoteResponse)
+            return try JSONDecoder().decode(decodeType, from: data)
         } catch{
             print("An error occured: \(error.localizedDescription)")
+            return nil
         }
-        
-        
     }
 }
