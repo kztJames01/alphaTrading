@@ -17,6 +17,7 @@ public struct ErrorResponse: Codable{
     }
     
     public static func fromDict(_ errors: [String:[String]])-> [ErrorResponse]{
+        
         return errors.flatMap{
             key, messages in messages.map{
                 ErrorResponse(code:key, description: $0)

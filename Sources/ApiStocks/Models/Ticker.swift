@@ -24,8 +24,8 @@ public struct SearchTicker: Decodable{
                                                 CodingKeys.self)
         
         data = try? container.decodeIfPresent([Ticker].self, forKey: .body)
-        let rawErrors = try? container.decodeIfPresent([String:[String]].self, forKey: .errors)
-        error = ErrorResponse.fromDict(rawErrors ?? ["":[""]])
+        let rawErrors = (try? container.decodeIfPresent([String:[String]].self, forKey: .errors)) ?? [:]
+        error = ErrorResponse.fromDict(rawErrors)
         message = try? container.decodeIfPresent(String.self, forKey: .message)
     }
 }

@@ -14,9 +14,9 @@ struct ApiStocksExec{
             "x-rapidapi-host": "yahoo-finance15.p.rapidapi.com"
         ]
         
-        let quoteURL = "https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/quotes?"
+        let quoteURL = "https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/quotes?ticker=AAPL"
         
-        let searchURL = "https://yahoo-fianance15.p.rapidapi.com/api/v1/markets/search?"
+        let searchURL = "https://yahoo-fianance15.p.rapidapi.com/api/v1/markets/search?search=AA"
         
         
         if let quoteResponse = await fetchRequest(urlString: quoteURL, headers: headers, decodeType: QuoteResponse.self){
@@ -42,8 +42,8 @@ struct ApiStocksExec{
         do {
             let (data, response) = try! await URLSession.shared.data(for: request)
             
-            if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode){
-                print("HTTP Error: \(httpResponse.statusCode)")
+            if let httpResponse = response as? HTTPURLResponse, !(200...499).contains(httpResponse.statusCode){
+                print("URL not found, HTTP Error: \(httpResponse.statusCode)")
                 return nil
             }
             
