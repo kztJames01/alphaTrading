@@ -11,10 +11,10 @@ struct ApiStocksExec{
     static func main() async{
         let headers = [
             "x-rapidapi-key": "c5d836857cmshba68fc722dba282p1df907jsn5110b8a4e164",
-                "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+                "x-rapidapi-host": "yahoo-finance15.p.rapidapi.com"
         ]
         
-        let urlString = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/"
+        let urlString = "https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/quotes?ticker=AAPL"
         
         guard let url = URL(string: urlString) else{
             print("Invalid URL.")

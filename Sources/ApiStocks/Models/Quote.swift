@@ -10,17 +10,13 @@ import Foundation
 public struct QuoteResponse: Decodable {
     
     public let data: [Quote]?
-    public let error: ErrorResponse?
+    public let error: [ErrorResponse]?
     public let message: String?
     
-    enum CodingKeys: String,CodingKey{
-        case quoteResponse
+    enum CodingKeys: String, CodingKey{
+        case body
         case message
-    }
-    
-    enum ResponseKeys: String,CodingKey{
-        case result
-        case error
+        case errors
     }
     
     public init(from decoder: any Decoder) throws {
@@ -28,17 +24,16 @@ public struct QuoteResponse: Decodable {
                                                 CodingKeys.self)
         
         if let quoteResponseContainer = try?
-            container.nestedContainer(keyedBy: ResponseKeys.self, forKey: .quoteResponse){
-            self.data = try?
-            quoteResponseContainer.decodeIfPresent([Quote].self, forKey: .result)
-            self.error = try?
-            quoteResponseContainer.decodeIfPresent(ErrorResponse.self, forKey: .error)
+            container.decodeIfPresent([Quote].self, forKey: .body){
+            self.data = quoteResponseContainer
+            self.error = nil
             self.message = nil
             
         }else if let messageResponse = try?
-                    container.decode(String.self,forKey: .message){
+                    container.decodeIfPresent(String.self,forKey: .message),
+                 let rawErrors = try? container.decodeIfPresent([String:[String]].self, forKey: .errors){
             self.data = nil
-            self.error = nil
+            self.error = ErrorResponse.fromDict(rawErrors)
             self.message = messageResponse
             
         } else{
@@ -56,7 +51,7 @@ public struct Quote: Codable, Identifiable, Hashable {
     public let currency: String?
     public let marketState: String?
     public let fullExchangeName: String?
-    public let shortName: String?
+    public let displayName: String?
     public let symbol: String?
     public let regularMarketPrice: Double?
     public let regularMarketChange: Double?
@@ -81,11 +76,11 @@ public struct Quote: Codable, Identifiable, Hashable {
     public let trailingAnnualDividendYield: Double?
     public let epsTrailingTwelveMonths: Double?
     
-    public init(currency: String?, marketState: String?, fullExchangeName: String?, shortName: String?, symbol: String?, regularMarketPrice: Double?, regularMarketChange: Double?, regularMarketChangePercent: Double?, regularMarketChangePreviousClose: Double?, postMarketPrice: Double?, postMarketChange: Double?, regularMarketOpen: Double?, regularMarketDayHigh: Double?, regularMarketDayLow: Double?, regularMarketVolume: Double?, trailingPE: Double?, marketCap: Double?, fiftyTwoWeekLow: Double?, fiftyTwoWeekHigh: Double?, averageDailyVolume3Month: Double?, trailingAnnualDividendYield: Double?, epsTrailingTwelveMonths: Double?) {
+    public init(currency: String?, marketState: String?, fullExchangeName: String?, displayName: String?, symbol: String?, regularMarketPrice: Double?, regularMarketChange: Double?, regularMarketChangePercent: Double?, regularMarketChangePreviousClose: Double?, postMarketPrice: Double?, postMarketChange: Double?, regularMarketOpen: Double?, regularMarketDayHigh: Double?, regularMarketDayLow: Double?, regularMarketVolume: Double?, trailingPE: Double?, marketCap: Double?, fiftyTwoWeekLow: Double?, fiftyTwoWeekHigh: Double?, averageDailyVolume3Month: Double?, trailingAnnualDividendYield: Double?, epsTrailingTwelveMonths: Double?) {
         self.currency = currency
         self.marketState = marketState
         self.fullExchangeName = fullExchangeName
-        self.shortName = shortName
+        self.displayName = displayName
         self.symbol = symbol
         self.regularMarketPrice = regularMarketPrice
         self.regularMarketChange = regularMarketChange
