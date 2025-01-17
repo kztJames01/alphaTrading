@@ -18,13 +18,21 @@ struct ApiStocksExec{
         
         let searchURL = "https://yahoo-fianance15.p.rapidapi.com/api/v1/markets/search?search=AA"
         
+        let chartURL = "https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/history?symbol=AAPL&interval=5m&diffandsplits=false"
+            
         
         if let quoteResponse = await fetchRequest(urlString: quoteURL, headers: headers, decodeType: QuoteResponse.self){
-            print(quoteResponse)
+            print("Quote Works")
         }
         print("            ")
         if let searchResponse = await fetchRequest(urlString: searchURL, headers: headers, decodeType: SearchTicker.self){
-            print(searchResponse)
+            print("Search Works")
+        }
+        
+        print("         ")
+        
+        if let chartResponse = await fetchRequest(urlString: chartURL, headers: headers, decodeType: MarketDataResponse.self){
+            print(chartResponse)
         }
         
     }
