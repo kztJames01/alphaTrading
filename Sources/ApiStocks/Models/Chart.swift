@@ -7,9 +7,23 @@
 
 import Foundation
 
+public struct DynamicKey: CodingKey{
+    public let stringValue: String
+    public let intValue: Int?
+    
+    public init?(stringValue: String){
+        self.stringValue = stringValue
+        self.intValue = nil
+    }
+    
+    public init?(intValue: Int){
+        self.stringValue = "\(intValue)"
+        self.intValue = intValue
+    }
+}
 public struct MarketDataResponse: Decodable{
-    public let meta: MetaData?
-    public let body: [String: TimeStamp]?
+    public let metaData: MetaData?
+    public var data: [TimeStamp]?
     public let message: String?
     public let error: [ErrorResponse]?
     
@@ -22,9 +36,22 @@ public struct MarketDataResponse: Decodable{
     
     public init(from decoder: Decoder) throws{
         let container = try? decoder.container(keyedBy: CodingKeys.self)
-        self.meta = try container?.decodeIfPresent(MetaData.self, forKey: .meta)
-        self.body = try container?.decodeIfPresent([String:TimeStamp].self,forKey: .body)
-        self.message = try container?.decodeIfPresent(String.self, forKey: .message)
+        metaData = try container?.decodeIfPresent(MetaData.self, forKey: .meta)
+        if let bodyContainer = try? container?.nestedContainer(keyedBy: DynamicKey.self, forKey: .body){
+            
+            //create dynamic key
+            var decodedData: [TimeStamp] = []
+            for key in bodyContainer.allKeys{
+                if let timeStampData = try? bodyContainer.decodeIfPresent(TimeStamp.self, forKey: key){
+                    decodedData.append(timeStampData)
+                }
+            }
+            data = decodedData
+        }else{
+            print("No body key found")
+            self.data = nil
+        }
+        message = try container?.decodeIfPresent(String.self, forKey: .message)
         let rawErrors = (try? container?.decodeIfPresent([String:[String]].self, forKey: .errors)) ?? [:]
         error = ErrorResponse.fromDict(rawErrors)
     }
@@ -65,23 +92,25 @@ public struct MetaData: Decodable{
     
 }
 
-public struct TimeStamp: Codable{
+public struct TimeStamp: Decodable{
     
     public let date: String
-    public let dateUTC: Int
+    public let date_utc: Int
     public let open: Double?
     public let close: Double?
     public let high: Double?
     public let low: Double?
+    public let volume: Int?
     
-    public init(date: String, open: Double?, close: Double?, high: Double?, low: Double?, dateUTC: Int) {
+    public init(date: String, open: Double?, close: Double?, high: Double?, low: Double?, date_utc: Int,volume: Int?) {
         
-        self.dateUTC = dateUTC
+        self.date_utc = date_utc
         self.date = date
         self.open = open
         self.close = close
         self.high = high
         self.low = low
+        self.volume = volume
     }
     
     
