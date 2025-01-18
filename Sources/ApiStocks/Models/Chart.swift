@@ -96,13 +96,13 @@ public struct TimeStamp: Decodable{
     
     public let date: String
     public let date_utc: Int
-    public let open: Double?
-    public let close: Double?
-    public let high: Double?
-    public let low: Double?
-    public let volume: Int?
+    public let open: Double
+    public let close: Double
+    public let high: Double
+    public let low: Double
+    public let volume: Int
     
-    public init(date: String, open: Double?, close: Double?, high: Double?, low: Double?, date_utc: Int,volume: Int?) {
+    public init(date: String, open: Double, close: Double, high: Double, low: Double, date_utc: Int,volume: Int) {
         
         self.date_utc = date_utc
         self.date = date
