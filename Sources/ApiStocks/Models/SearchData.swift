@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SearchTicker: Decodable{
+public struct SearchData: Decodable{
     
     public let data: [Ticker]?
     public let error: [ErrorResponse]?
