@@ -27,7 +27,7 @@ public struct MarketDataResponse: Decodable{
     public let message: String?
     public let error: [ErrorResponse]?
     
-    enum CodingKeys: CodingKey{
+    enum CodingKeys: String,CodingKey{
         case meta
         case body
         case message
@@ -36,24 +36,43 @@ public struct MarketDataResponse: Decodable{
     
     public init(from decoder: Decoder) throws{
         let container = try? decoder.container(keyedBy: CodingKeys.self)
-        metaData = try container?.decodeIfPresent(MetaData.self, forKey: .meta)
-        if let bodyContainer = try? container?.nestedContainer(keyedBy: DynamicKey.self, forKey: .body){
-            
-            //create dynamic key
-            var decodedData: [TimeStamp] = []
-            for key in bodyContainer.allKeys{
-                if let timeStampData = try? bodyContainer.decodeIfPresent(TimeStamp.self, forKey: key){
-                    decodedData.append(timeStampData)
+        
+        if let historyResponseContainer = try?
+            container?.decodeIfPresent(MetaData.self, forKey: .meta){
+            self.metaData = historyResponseContainer
+            if let bodyContainer = try? container?.nestedContainer(keyedBy: DynamicKey.self, forKey: .body){
+                
+                //create dynamic key
+                var decodedData: [TimeStamp] = []
+                for key in bodyContainer.allKeys{
+                    if let timeStampData = try? bodyContainer.decodeIfPresent(TimeStamp.self, forKey: key){
+                        decodedData.append(timeStampData)
+                    }
                 }
+                self.data = decodedData
+            }else{
+                print("No body key found")
+                self.data = nil
             }
-            data = decodedData
-        }else{
-            print("No body key found")
+            self.error = nil
+            self.message = nil
+            
+        }else if let messageResponse = try?
+                    container?.decodeIfPresent(String.self,forKey: .message),
+                 let rawErrors = try? container!.decodeIfPresent([String:[String]].self, forKey: .errors){
+            self.metaData = nil
             self.data = nil
+            self.error = ErrorResponse.fromDict(rawErrors)
+            self.message = messageResponse
+            
+        } else{
+            self.metaData = nil
+            self.data = nil
+            self.data = nil
+            self.error = nil
+            self.message = nil
         }
-        message = try container?.decodeIfPresent(String.self, forKey: .message)
-        let rawErrors = (try? container?.decodeIfPresent([String:[String]].self, forKey: .errors)) ?? [:]
-        error = ErrorResponse.fromDict(rawErrors)
+       
     }
 }
 public struct MetaData: Decodable{
@@ -65,7 +84,7 @@ public struct MetaData: Decodable{
     public let previousClose: Double?
     public var firstTradeDate: Date?
     
-    enum CodingKeys: CodingKey{
+    enum CodingKeys: String,CodingKey{
         case currency
         case symbol
         case regularMarketPrice
