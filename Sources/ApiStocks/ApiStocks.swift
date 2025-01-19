@@ -2,6 +2,36 @@
 
 import Foundation
 
+
+public struct EnvLoader {
+    static func load(fileName: String = ".env") {
+        guard let filePath = FileManager.default.currentDirectoryPath.appending("/\(fileName)") as String? else {
+            print("⚠️ .env file not found at path: \(fileName)")
+            return
+        }
+        
+        do {
+            let contents = try String(contentsOfFile: filePath, encoding: .utf8)
+            let lines = contents.split(separator: "\n")
+            
+            for line in lines {
+                let parts = line.split(separator: "=", maxSplits: 1)
+                guard parts.count == 2 else { continue }
+                
+                let key = parts[0].trimmingCharacters(in: .whitespacesAndNewlines)
+                let value = parts[1].trimmingCharacters(in: .whitespacesAndNewlines)
+                
+                if !key.isEmpty && !value.isEmpty {
+                    setenv(key, value, 1) // Add to environment
+                }
+            }
+        } catch {
+            print("⚠️ Error loading .env file: \(error)")
+        }
+    }
+}
+
+
 public protocol API{
     func fetchHistoryData(symbol: String, interval: HistoryRange,diffandsplits: Bool) async throws -> [(MetaData,[TimeStamp])]
     func searchData(search: String) async throws -> [Ticker]
@@ -9,8 +39,12 @@ public protocol API{
     func fetchQuotesRawData(symbol:String) async throws -> (Data,URLResponse)
     func searchDataRawData(search:String) async throws -> (Data, URLResponse)
     func fetchHistoryRawData(symbol:String, interval: HistoryRange,diffandsplits: Bool) async throws -> (Data, URLResponse)
+    func fetchChartData(symbol:String, interval:ChartInterval, range: ChartRange, region: String) async throws -> ChartData?
+    func fetchChartRawData(symbol:String, interval:ChartInterval, range: ChartRange, region: String) async throws -> (Data,URLResponse)
+    
 }
 public struct ApiStocks:API{
+   
     private let session =  URLSession.shared
     private let jsonDecoder = {
         let decoder = JSONDecoder();
@@ -18,9 +52,10 @@ public struct ApiStocks:API{
         return decoder
     }
     
-    
+   
     private var headersMap: [String:[String:String]]{
-        guard let apiKey = ProcessInfo.processInfo.environment["Rapid_API_KEY"] else{
+        EnvLoader.load()
+        guard let apiKey = ProcessInfo.processInfo.environment["API_KEY"] else{
             fatalError("API Key not found in environment variables")
         }
         return [
@@ -36,6 +71,8 @@ public struct ApiStocks:API{
     }
     
     private let baseURL = "https://yahoo-financial15.p.rapidapi.com"
+    
+    private let secondaryURL = "https://yh-finance.p.rapidapi.com"
     public init() {
     }
     public func fetchQuotes(symbol:String) async throws -> [Quote] {
@@ -123,6 +160,41 @@ public struct ApiStocks:API{
             URLQueryItem(name: "symbol", value: symbol),
             URLQueryItem(name: "interval", value: interval.interval),
             URLQueryItem(name: "diffandsplits", value: "\(diffandsplits)")
+        ]
+        return urlComp.url
+    }
+    
+    public func fetchChartData(symbol:String, interval:ChartInterval, range: ChartRange, region: String) async throws ->ChartData?{
+        guard let url = urlForChartData(symbol: symbol, interval: ChartInterval(rawValue: interval.interval) ?? ChartInterval(rawValue: "1d")! ,range: range, region: region) else{
+            throw ApiError.invalidURL
+        }
+        let (response, statusCode): (ChartResponse,Int) = try await fetch(url:url,apiRequest: "secondary")
+        if let error = response.error{
+            throw ApiError.httpStatusCodeFailed(statusCode: statusCode, errors: error)
+        }
+        
+        return response.data?.first
+    }
+    
+    public func fetchChartRawData(symbol:String, interval: ChartInterval,range: ChartRange, region: String) async throws -> (Data, URLResponse){
+        guard let url = urlForChartData(symbol: symbol, interval: interval, range: range, region: region)else{
+            throw ApiError.invalidURL
+        }
+        return try await session.data(from: url)
+    }
+    
+    private func urlForChartData(symbol:String, interval: ChartInterval, range: ChartRange,region: String) -> URL?{
+        guard var urlComp = URLComponents(string:"\(secondaryURL)/stock/v3/get-chart")else{
+            return nil
+        }
+        urlComp.queryItems = [
+            URLQueryItem(name: "symbol", value: symbol),
+            URLQueryItem(name: "interval", value: interval.interval),
+            URLQueryItem(name: "range", value: range.rawValue),
+            URLQueryItem(name: "region", value: region),
+            URLQueryItem(name: "includePrePost", value: "\(false)"),
+            URLQueryItem(name: "useYfid", value: "\(true)"),
+            URLQueryItem(name: "includeAdjustedClose", value: "\(true)"),
         ]
         return urlComp.url
     }
