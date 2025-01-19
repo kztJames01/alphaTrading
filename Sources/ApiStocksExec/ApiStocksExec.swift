@@ -18,7 +18,7 @@ struct ApiStocksExec{
             print(quote)
             print("     ")
             let history = try await api
-                .fetchHistoryData(symbol: "AAPL", interval: "1mo", diffandsplits: false)
+                .fetchHistoryData(symbol: "AAPL", interval: .onehr, diffandsplits: false)
             print(history ?? "Not Found")
             print("      ")
             let searchTickers = try await api
