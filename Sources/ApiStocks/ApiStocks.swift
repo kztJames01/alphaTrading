@@ -17,19 +17,32 @@ public struct ApiStocks:API{
         decoder.dateDecodingStrategy = .secondsSince1970
         return decoder
     }
-    private let headers = [
-        "x-rapidapi-key": "c5d836857cmshba68fc722dba282p1df907jsn5110b8a4e164",
-        "x-rapidapi-host": "yahoo-finance15.p.rapidapi.com"
-    ]
+    
+    
+    private var headersMap: [String:[String:String]]{
+        guard let apiKey = ProcessInfo.processInfo.environment["Rapid_API_KEY"] else{
+            fatalError("API Key not found in environment variables")
+        }
+        return [
+            "primary":[
+            "x-rapidapi-key": apiKey,
+            "x-rapidapi-host": "yahoo-finance15.p.rapidapi.com"
+        ],
+            "secondary":[
+            "x-rapidapi-key": apiKey,
+            "x-rapidapi-host": "yh-finance.p.rapidapi.com"
+        ],
+        ]
+    }
+    
     private let baseURL = "https://yahoo-financial15.p.rapidapi.com"
     public init() {
-       
     }
     public func fetchQuotes(symbol:String) async throws -> [Quote] {
         guard let url = urlForQuotes(symbol: symbol)else{
             throw ApiError.invalidURL
         }
-        let (response, statusCode) :(QuoteResponse, Int) = try await fetch(url: url)
+        let (response, statusCode) :(QuoteResponse, Int) = try await fetch(url: url,apiRequest: "primary")
         if let error = response.error{
             throw ApiError.httpStatusCodeFailed(statusCode: statusCode, errors: error)
         }
@@ -58,7 +71,7 @@ public struct ApiStocks:API{
             throw ApiError.invalidURL
         }
         
-        let (response, statusCode) : (SearchData, Int) = try await fetch(url: url)
+        let (response, statusCode) : (SearchData, Int) = try await fetch(url: url,apiRequest: "primary")
 
         if let error = response.error {
             throw ApiError.httpStatusCodeFailed(statusCode: statusCode, errors: error)
@@ -87,7 +100,7 @@ public struct ApiStocks:API{
         guard let url = urlForHistoryData(symbol: symbol, interval: HistoryRange(rawValue: interval.interval) ?? HistoryRange(rawValue: "1d")!, diffandsplits: diffandsplits) else{
             throw ApiError.invalidURL
         }
-        let (response, statusCode): (MarketDataResponse,Int) = try await fetch(url:url)
+        let (response, statusCode): (MarketDataResponse,Int) = try await fetch(url:url,apiRequest: "primary")
         if let error = response.error{
             throw ApiError.httpStatusCodeFailed(statusCode: statusCode, errors: error)
         }
@@ -114,11 +127,12 @@ public struct ApiStocks:API{
         return urlComp.url
     }
     
-    private func fetch<D: Decodable>(url:URL) async throws -> (D,Int){
+    private func fetch<D: Decodable>(url:URL,apiRequest: String) async throws -> (D,Int){
         
         var request = URLRequest(url:url)
         request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
+        request.allHTTPHeaderFields = try await apiRequestType(apiRequest: apiRequest)
+       
         
         let (data, response) = try await session.data(for:request)
         let statusCode = try validateHTTPResponse(response: response)
@@ -131,6 +145,13 @@ public struct ApiStocks:API{
                 print("Raw Data: \(String(data: data, encoding: .utf8) ?? "Unable to decode raw data")")
                 throw error
             }
+    }
+    
+    private func apiRequestType(apiRequest: String) async throws -> [String:String]{
+        guard let headers = headersMap[apiRequest] else{
+            throw NSError(domain: "Invalid API Request", code: 404, userInfo: [NSLocalizedDescriptionKey: "\(apiRequest) API Request not working"])
+        }
+        return headers
     }
     
     private func validateHTTPResponse(response: URLResponse) throws -> Int{
