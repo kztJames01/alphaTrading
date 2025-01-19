@@ -3,9 +3,12 @@
 import Foundation
 
 public protocol API{
-    func fetchHistoryData(symbol: String, interval: HistorRange,diffandsplits: Bool) async throws -> [(MetaData,[TimeStamp])]
+    func fetchHistoryData(symbol: String, interval: HistoryRange,diffandsplits: Bool) async throws -> [(MetaData,[TimeStamp])]
     func searchData(search: String) async throws -> [Ticker]
     func fetchQuotes(symbol:String) async throws -> [Quote]
+    func fetchQuotesRawData(symbol:String) async throws -> (Data,URLResponse)
+    func searchDataRawData(search:String) async throws -> (Data, URLResponse)
+    func fetchHistoryRawData(symbol:String, interval: HistoryRange,diffandsplits: Bool) async throws -> (Data, URLResponse)
 }
 public struct ApiStocks:API{
     private let session =  URLSession.shared
@@ -31,6 +34,13 @@ public struct ApiStocks:API{
             throw ApiError.httpStatusCodeFailed(statusCode: statusCode, errors: error)
         }
         return response.data ?? []
+    }
+    
+    public func fetchQuotesRawData(symbol:String) async throws -> (Data, URLResponse){
+        guard let url = urlForQuotes(symbol: symbol ) else{
+            throw ApiError.invalidURL
+        }
+        return try await session.data(from: url)
     }
     
     private func urlForQuotes(symbol:String) -> URL?{
@@ -73,8 +83,8 @@ public struct ApiStocks:API{
         return urlComp.url
     }
     
-    public func fetchHistoryData(symbol:String, interval:HistorRange, diffandsplits: Bool) async throws -> [(MetaData,[TimeStamp])]{
-        guard let url = urlForHistoryData(symbol: symbol, interval: interval.rawValue, diffandsplits: diffandsplits) else{
+    public func fetchHistoryData(symbol:String, interval:HistoryRange, diffandsplits: Bool) async throws -> [(MetaData,[TimeStamp])]{
+        guard let url = urlForHistoryData(symbol: symbol, interval: HistoryRange(rawValue: interval.interval) ?? HistoryRange(rawValue: "1d")!, diffandsplits: diffandsplits) else{
             throw ApiError.invalidURL
         }
         let (response, statusCode): (MarketDataResponse,Int) = try await fetch(url:url)
@@ -85,13 +95,20 @@ public struct ApiStocks:API{
         return [(response.metaData!, response.data!)]
     }
     
-    private func urlForHistoryData(symbol:String, interval:String, diffandsplits: Bool) -> URL?{
+    public func fetchHistoryRawData(symbol:String, interval: HistoryRange,diffandsplits: Bool) async throws -> (Data, URLResponse){
+        guard let url = urlForHistoryData(symbol: symbol, interval: interval, diffandsplits: diffandsplits) else{
+            throw ApiError.invalidURL
+        }
+        return try await session.data(from: url)
+    }
+    
+    private func urlForHistoryData(symbol:String, interval: HistoryRange, diffandsplits: Bool) -> URL?{
         guard var urlComp = URLComponents(string:"\(baseURL)/api/v1/markets/stock/history")else{
             return nil
         }
         urlComp.queryItems = [
             URLQueryItem(name: "symbol", value: symbol),
-            URLQueryItem(name: "interval", value: interval),
+            URLQueryItem(name: "interval", value: interval.interval),
             URLQueryItem(name: "diffandsplits", value: "\(diffandsplits)")
         ]
         return urlComp.url

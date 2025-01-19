@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum HistorRange: String, CaseIterable{
+public enum HistoryRange: String, CaseIterable{
     case fiveMin = "5m"
     case fifteenMin = "15m"
     case thirtyMin = "30m"

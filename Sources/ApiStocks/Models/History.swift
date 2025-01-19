@@ -43,13 +43,15 @@ public struct MarketDataResponse: Decodable{
             if let bodyContainer = try? container?.nestedContainer(keyedBy: DynamicKey.self, forKey: .body){
                 
                 //create dynamic key
-                var decodedData: [TimeStamp] = []
+                var decodedData: [(Int,TimeStamp)] = []
                 for key in bodyContainer.allKeys{
-                    if let timeStampData = try? bodyContainer.decodeIfPresent(TimeStamp.self, forKey: key){
-                        decodedData.append(timeStampData)
+                    if let keyInt = Int(key.stringValue),
+                        let timeStampData = try? bodyContainer.decodeIfPresent(TimeStamp.self, forKey: key){
+                        decodedData.append((keyInt,timeStampData))
                     }
                 }
-                self.data = decodedData
+                decodedData.sort { $0.0 < $1.0 }
+                self.data = decodedData.map{$0.1}
             }else{
                 print("No body key found")
                 self.data = nil
@@ -112,6 +114,8 @@ public struct MetaData: Decodable{
 }
 
 public struct TimeStamp: Decodable{
+    
+    public let id = UUID()
     
     public let date: String
     public let date_utc: Int
