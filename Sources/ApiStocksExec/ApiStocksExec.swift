@@ -13,9 +13,14 @@ struct ApiStocksExec{
             
         do{
             
+            let quote = try await api.fetchQuotes(symbol: "AAPL")
+            print(quote)
             
-    
+            let searchResp = try await api.searchData(search: "AA")
+            print(searchResp)
         
+            let history = try await api.fetchHistoryData(symbol: "AAPL", interval: .fifteen, diffandsplits: false)
+            print(history)
             
             let chart = try await api.fetchChartData(symbol: "AMRN", interval: .fifteenMin, range: .oneDay, region: "US")
             
