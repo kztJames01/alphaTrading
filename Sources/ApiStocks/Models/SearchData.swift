@@ -54,7 +54,7 @@ public struct Ticker: Codable, Hashable, Identifiable, Equatable{
     public let exchDisp: String?
     public let typeDisp: String?
     
-    init(symbol: String, name: String = "", exch: String? = "", exchDisp: String? = "", typeDisp: String? = "") {
+    public init(symbol: String, name: String = "", exch: String? = "", exchDisp: String? = "", typeDisp: String? = "") {
         self.symbol = symbol
         self.name = name
         self.exch = exch
