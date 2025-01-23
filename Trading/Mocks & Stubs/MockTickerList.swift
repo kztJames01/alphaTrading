@@ -6,3 +6,18 @@
 //
 
 import Foundation
+import ApiStocks
+
+#if DEBUG
+
+struct MockTickerList: TickerList{
+    var stubbedLoad: (() async throws -> [Ticker])!
+    func load() async throws -> [Ticker] {
+        try await stubbedLoad()
+    }
+    
+    func save(_ current: [Ticker]) async throws {
+        
+    }
+}
+#endif

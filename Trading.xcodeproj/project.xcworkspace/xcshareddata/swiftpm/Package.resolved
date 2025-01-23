@@ -1,0 +1,24 @@
+{
+  "originHash" : "f807f835d68452279010fe1bb5f48c7ed85fe138cc7edca62380fafa2aef327d",
+  "pins" : [
+    {
+      "identity" : "alphatrading",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kztJames01/alphaTrading",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c55ff0ead48d0db08e00c35c3b7c880c96437017"
+      }
+    },
+    {
+      "identity" : "swift-protobuf",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-protobuf.git",
+      "state" : {
+        "revision" : "ebc7251dd5b37f627c93698e4374084d98409633",
+        "version" : "1.28.2"
+      }
+    }
+  ],
+  "version" : 3
+}
