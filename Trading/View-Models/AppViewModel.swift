@@ -7,7 +7,7 @@
 
 import Foundation
 import ApiStocks
-import SwiftProtobuf
+import SwiftUI
 
 @MainActor // this AppViewModel is to use in main thread
 class AppViewModel: ObservableObject{
