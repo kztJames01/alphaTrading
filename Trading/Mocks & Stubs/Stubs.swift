@@ -30,6 +30,11 @@ extension Quote {
             Quote(symbol: "AMD", regularMarketPrice: 70.43, regularMarketChange: 12.55)
         ]
     }
+    static var stubsDict : [String:Quote]{
+        var dict = [String:Quote]()
+        stubs.forEach { dict[$0.symbol] = $0 }
+        return dict
+    }
 }
 
 #endif

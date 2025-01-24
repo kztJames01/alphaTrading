@@ -10,20 +10,18 @@ import ApiStocks
 
 @main
 struct TradingApp: App {
+    
+    @StateObject var appVm = AppViewModel()
+    var searchVM = SearchViewModel()
+    var quoteVM = QuoteViewModel()
     let persistenceController = PersistenceController.shared
     let stocks = ApiStocks()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .onAppear(){
-                    Task{
-                        do{
-                            let quotes = try await stocks.fetchQuotes(symbol: "AAPL")
-                        }catch{
-                            print(error.localizedDescription)
-                        }
-                    }
-                }
+            NavigationStack{
+                MainView(quotesVM: quoteVM, searchVM: searchVM)
+            }
+            .environmentObject(appVm)
         }
     }
 }
