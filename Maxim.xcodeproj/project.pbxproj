@@ -1,0 +1,614 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A3E492A2D44FC63006C7E3D /* MaximApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49292D44FC63006C7E3D /* MaximApp.swift */; };
+		7A3E492C2D44FC63006C7E3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E492B2D44FC63006C7E3D /* ContentView.swift */; };
+		7A3E492E2D44FC64006C7E3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E492D2D44FC64006C7E3D /* Assets.xcassets */; };
+		7A3E49312D44FC64006C7E3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E49302D44FC64006C7E3D /* Preview Assets.xcassets */; };
+		7A3E49332D44FC64006C7E3D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49322D44FC64006C7E3D /* Persistence.swift */; };
+		7A3E49362D44FC64006C7E3D /* Maxim.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49342D44FC64006C7E3D /* Maxim.xcdatamodeld */; };
+		7A3E49402D44FC64006C7E3D /* MaximTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E493F2D44FC64006C7E3D /* MaximTests.swift */; };
+		7A3E494A2D44FC64006C7E3D /* MaximUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49492D44FC64006C7E3D /* MaximUITests.swift */; };
+		7A3E494C2D44FC64006C7E3D /* MaximUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E494B2D44FC64006C7E3D /* MaximUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A3E493C2D44FC64006C7E3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A3E491E2D44FC63006C7E3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A3E49252D44FC63006C7E3D;
+			remoteInfo = Maxim;
+		};
+		7A3E49462D44FC64006C7E3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A3E491E2D44FC63006C7E3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A3E49252D44FC63006C7E3D;
+			remoteInfo = Maxim;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7A3E49262D44FC63006C7E3D /* Maxim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maxim.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A3E49292D44FC63006C7E3D /* MaximApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaximApp.swift; sourceTree = "<group>"; };
+		7A3E492B2D44FC63006C7E3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7A3E492D2D44FC64006C7E3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A3E49302D44FC64006C7E3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7A3E49322D44FC64006C7E3D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		7A3E49352D44FC64006C7E3D /* Maxim.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Maxim.xcdatamodel; sourceTree = "<group>"; };
+		7A3E493B2D44FC64006C7E3D /* MaximTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaximTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A3E493F2D44FC64006C7E3D /* MaximTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaximTests.swift; sourceTree = "<group>"; };
+		7A3E49452D44FC64006C7E3D /* MaximUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaximUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A3E49492D44FC64006C7E3D /* MaximUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaximUITests.swift; sourceTree = "<group>"; };
+		7A3E494B2D44FC64006C7E3D /* MaximUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaximUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A3E49232D44FC63006C7E3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A3E49382D44FC64006C7E3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A3E49422D44FC64006C7E3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A3E491D2D44FC63006C7E3D = {
+			isa = PBXGroup;
+			children = (
+				7A3E49282D44FC63006C7E3D /* Maxim */,
+				7A3E493E2D44FC64006C7E3D /* MaximTests */,
+				7A3E49482D44FC64006C7E3D /* MaximUITests */,
+				7A3E49272D44FC63006C7E3D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7A3E49272D44FC63006C7E3D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E49262D44FC63006C7E3D /* Maxim.app */,
+				7A3E493B2D44FC64006C7E3D /* MaximTests.xctest */,
+				7A3E49452D44FC64006C7E3D /* MaximUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A3E49282D44FC63006C7E3D /* Maxim */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E49292D44FC63006C7E3D /* MaximApp.swift */,
+				7A3E492B2D44FC63006C7E3D /* ContentView.swift */,
+				7A3E492D2D44FC64006C7E3D /* Assets.xcassets */,
+				7A3E49322D44FC64006C7E3D /* Persistence.swift */,
+				7A3E49342D44FC64006C7E3D /* Maxim.xcdatamodeld */,
+				7A3E492F2D44FC64006C7E3D /* Preview Content */,
+			);
+			path = Maxim;
+			sourceTree = "<group>";
+		};
+		7A3E492F2D44FC64006C7E3D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E49302D44FC64006C7E3D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7A3E493E2D44FC64006C7E3D /* MaximTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E493F2D44FC64006C7E3D /* MaximTests.swift */,
+			);
+			path = MaximTests;
+			sourceTree = "<group>";
+		};
+		7A3E49482D44FC64006C7E3D /* MaximUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E49492D44FC64006C7E3D /* MaximUITests.swift */,
+				7A3E494B2D44FC64006C7E3D /* MaximUITestsLaunchTests.swift */,
+			);
+			path = MaximUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A3E49252D44FC63006C7E3D /* Maxim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A3E494F2D44FC64006C7E3D /* Build configuration list for PBXNativeTarget "Maxim" */;
+			buildPhases = (
+				7A3E49222D44FC63006C7E3D /* Sources */,
+				7A3E49232D44FC63006C7E3D /* Frameworks */,
+				7A3E49242D44FC63006C7E3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Maxim;
+			productName = Maxim;
+			productReference = 7A3E49262D44FC63006C7E3D /* Maxim.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7A3E493A2D44FC64006C7E3D /* MaximTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A3E49522D44FC64006C7E3D /* Build configuration list for PBXNativeTarget "MaximTests" */;
+			buildPhases = (
+				7A3E49372D44FC64006C7E3D /* Sources */,
+				7A3E49382D44FC64006C7E3D /* Frameworks */,
+				7A3E49392D44FC64006C7E3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A3E493D2D44FC64006C7E3D /* PBXTargetDependency */,
+			);
+			name = MaximTests;
+			productName = MaximTests;
+			productReference = 7A3E493B2D44FC64006C7E3D /* MaximTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7A3E49442D44FC64006C7E3D /* MaximUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A3E49552D44FC64006C7E3D /* Build configuration list for PBXNativeTarget "MaximUITests" */;
+			buildPhases = (
+				7A3E49412D44FC64006C7E3D /* Sources */,
+				7A3E49422D44FC64006C7E3D /* Frameworks */,
+				7A3E49432D44FC64006C7E3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A3E49472D44FC64006C7E3D /* PBXTargetDependency */,
+			);
+			name = MaximUITests;
+			productName = MaximUITests;
+			productReference = 7A3E49452D44FC64006C7E3D /* MaximUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A3E491E2D44FC63006C7E3D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					7A3E49252D44FC63006C7E3D = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					7A3E493A2D44FC64006C7E3D = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 7A3E49252D44FC63006C7E3D;
+					};
+					7A3E49442D44FC64006C7E3D = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 7A3E49252D44FC63006C7E3D;
+					};
+				};
+			};
+			buildConfigurationList = 7A3E49212D44FC63006C7E3D /* Build configuration list for PBXProject "Maxim" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7A3E491D2D44FC63006C7E3D;
+			productRefGroup = 7A3E49272D44FC63006C7E3D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A3E49252D44FC63006C7E3D /* Maxim */,
+				7A3E493A2D44FC64006C7E3D /* MaximTests */,
+				7A3E49442D44FC64006C7E3D /* MaximUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A3E49242D44FC63006C7E3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A3E49312D44FC64006C7E3D /* Preview Assets.xcassets in Resources */,
+				7A3E492E2D44FC64006C7E3D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A3E49392D44FC64006C7E3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A3E49432D44FC64006C7E3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A3E49222D44FC63006C7E3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A3E49332D44FC64006C7E3D /* Persistence.swift in Sources */,
+				7A3E492C2D44FC63006C7E3D /* ContentView.swift in Sources */,
+				7A3E49362D44FC64006C7E3D /* Maxim.xcdatamodeld in Sources */,
+				7A3E492A2D44FC63006C7E3D /* MaximApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A3E49372D44FC64006C7E3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A3E49402D44FC64006C7E3D /* MaximTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A3E49412D44FC64006C7E3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A3E494A2D44FC64006C7E3D /* MaximUITests.swift in Sources */,
+				7A3E494C2D44FC64006C7E3D /* MaximUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7A3E493D2D44FC64006C7E3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A3E49252D44FC63006C7E3D /* Maxim */;
+			targetProxy = 7A3E493C2D44FC64006C7E3D /* PBXContainerItemProxy */;
+		};
+		7A3E49472D44FC64006C7E3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A3E49252D44FC63006C7E3D /* Maxim */;
+			targetProxy = 7A3E49462D44FC64006C7E3D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7A3E494D2D44FC64006C7E3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7A3E494E2D44FC64006C7E3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A3E49502D44FC64006C7E3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Maxim/Preview Content\"";
+				DEVELOPMENT_TEAM = LA5324SWJB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alpha.Maxim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A3E49512D44FC64006C7E3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Maxim/Preview Content\"";
+				DEVELOPMENT_TEAM = LA5324SWJB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alpha.Maxim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7A3E49532D44FC64006C7E3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LA5324SWJB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alpha.MaximTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maxim.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Maxim";
+			};
+			name = Debug;
+		};
+		7A3E49542D44FC64006C7E3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LA5324SWJB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alpha.MaximTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maxim.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Maxim";
+			};
+			name = Release;
+		};
+		7A3E49562D44FC64006C7E3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LA5324SWJB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alpha.MaximUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Maxim;
+			};
+			name = Debug;
+		};
+		7A3E49572D44FC64006C7E3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LA5324SWJB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alpha.MaximUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Maxim;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A3E49212D44FC63006C7E3D /* Build configuration list for PBXProject "Maxim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A3E494D2D44FC64006C7E3D /* Debug */,
+				7A3E494E2D44FC64006C7E3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A3E494F2D44FC64006C7E3D /* Build configuration list for PBXNativeTarget "Maxim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A3E49502D44FC64006C7E3D /* Debug */,
+				7A3E49512D44FC64006C7E3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A3E49522D44FC64006C7E3D /* Build configuration list for PBXNativeTarget "MaximTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A3E49532D44FC64006C7E3D /* Debug */,
+				7A3E49542D44FC64006C7E3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A3E49552D44FC64006C7E3D /* Build configuration list for PBXNativeTarget "MaximUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A3E49562D44FC64006C7E3D /* Debug */,
+				7A3E49572D44FC64006C7E3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7A3E49342D44FC64006C7E3D /* Maxim.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7A3E49352D44FC64006C7E3D /* Maxim.xcdatamodel */,
+			);
+			currentVersion = 7A3E49352D44FC64006C7E3D /* Maxim.xcdatamodel */;
+			path = Maxim.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7A3E491E2D44FC63006C7E3D /* Project object */;
+}
