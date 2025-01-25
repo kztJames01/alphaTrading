@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "ApiStocks",
     platforms: [
-        .iOS(.v13),.macOS(.v12), .macCatalyst(.v13), .tvOS(.v13), .watchOS(.v8)
+        .iOS(.v13),.macOS(.v12), .watchOS(.v8)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
@@ -21,14 +21,7 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         
         .target(
-            name: "ApiStocks",
-            swiftSettings: [
-                .define("SIMULATOR_ARCHITECTURE", .when(platforms: [.iOS,.macOS, .tvOS, .watchOS], configuration: .debug))
-            ],
-            linkerSettings: [
-                    .unsafeFlags(["-target", "arm64-apple-ios-simulator"], .when(platforms: [.iOS])),
-                    .unsafeFlags(["-target", "arm64-apple-macosx"], .when(platforms: [.macOS]))
-                ]
+            name: "ApiStocks"
             ),
         
         .executableTarget(name: "ApiStocksExec", dependencies: ["ApiStocks"]),
