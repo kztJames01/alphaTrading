@@ -6,13 +6,13 @@
 //
 
 import XCTest
-@testable import Trading
+import ApiStocks
 
 final class TradingTests: XCTestCase {
     
     var viewModel: QuoteViewModel!
     var mockApi: MockStocksApi!
-    
+   
     @MainActor override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         super.setUp()
