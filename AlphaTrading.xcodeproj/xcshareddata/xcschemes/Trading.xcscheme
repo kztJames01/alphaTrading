@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A2D29DB2D3DF049004C11E0"
-               BuildableName = "Trading.app"
-               BlueprintName = "Trading"
-               ReferencedContainer = "container:Trading.xcodeproj">
+               BuildableName = "AlphaTrading.app"
+               BlueprintName = "AlphaTrading"
+               ReferencedContainer = "container:AlphaTrading.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,9 +36,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A2D29F12D3DF050004C11E0"
-               BuildableName = "TradingTests.xctest"
-               BlueprintName = "TradingTests"
-               ReferencedContainer = "container:Trading.xcodeproj">
+               BuildableName = "AlphaTradingTests.xctest"
+               BlueprintName = "AlphaTradingTests"
+               ReferencedContainer = "container:AlphaTrading.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A2D29FB2D3DF050004C11E0"
-               BuildableName = "TradingUITests.xctest"
-               BlueprintName = "TradingUITests"
-               ReferencedContainer = "container:Trading.xcodeproj">
+               BuildableName = "AlphaTradingUITests.xctest"
+               BlueprintName = "AlphaTradingUITests"
+               ReferencedContainer = "container:AlphaTrading.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -58,9 +58,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A2D2A3F2D449E09004C11E0"
-               BuildableName = "StockTradingTests.xctest"
-               BlueprintName = "StockTradingTests"
-               ReferencedContainer = "container:Trading.xcodeproj">
+               BuildableName = "StockAlphaTradingTests.xctest"
+               BlueprintName = "StockAlphaTradingTests"
+               ReferencedContainer = "container:AlphaTrading.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A2D29DB2D3DF049004C11E0"
-            BuildableName = "Trading.app"
-            BlueprintName = "Trading"
-            ReferencedContainer = "container:Trading.xcodeproj">
+            BuildableName = "AlphaTrading.app"
+            BlueprintName = "AlphaTrading"
+            ReferencedContainer = "container:AlphaTrading.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -104,9 +104,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A2D29DB2D3DF049004C11E0"
-            BuildableName = "Trading.app"
-            BlueprintName = "Trading"
-            ReferencedContainer = "container:Trading.xcodeproj">
+            BuildableName = "AlphaTrading.app"
+            BlueprintName = "AlphaTrading"
+            ReferencedContainer = "container:AlphaTrading.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -65,7 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7A2D29DC2D3DF049004C11E0 /* Trading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trading.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A2D29DC2D3DF049004C11E0 /* AlphaTrading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlphaTrading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2D29DF2D3DF049004C11E0 /* TradingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingApp.swift; sourceTree = "<group>"; };
 		7A2D29E12D3DF049004C11E0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7A2D29E42D3DF049004C11E0 /* Trading.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Trading.xcdatamodel; sourceTree = "<group>"; };
@@ -73,9 +73,9 @@
 		7A2D29E82D3DF050004C11E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A2D29EA2D3DF050004C11E0 /* Trading.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trading.entitlements; sourceTree = "<group>"; };
 		7A2D29EC2D3DF050004C11E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7A2D29F22D3DF050004C11E0 /* TradingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A2D29F22D3DF050004C11E0 /* AlphaTradingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlphaTradingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2D29F62D3DF050004C11E0 /* TradingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingTests.swift; sourceTree = "<group>"; };
-		7A2D29FC2D3DF050004C11E0 /* TradingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A2D29FC2D3DF050004C11E0 /* AlphaTradingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlphaTradingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2D2A002D3DF050004C11E0 /* TradingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingUITests.swift; sourceTree = "<group>"; };
 		7A2D2A022D3DF050004C11E0 /* TradingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7A2D2A132D3F29B6004C11E0 /* TickerListRowData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerListRowData.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		7A2D2A352D4202FA004C11E0 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
 		7A2D2A382D420367004C11E0 /* Quotes+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quotes+Extensions.swift"; sourceTree = "<group>"; };
 		7A2D2A3A2D42054C004C11E0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		7A2D2A402D449E09004C11E0 /* StockTradingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockTradingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A2D2A402D449E09004C11E0 /* StockAlphaTradingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockAlphaTradingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,10 +144,10 @@
 		7A2D29DD2D3DF049004C11E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A2D29DC2D3DF049004C11E0 /* Trading.app */,
-				7A2D29F22D3DF050004C11E0 /* TradingTests.xctest */,
-				7A2D29FC2D3DF050004C11E0 /* TradingUITests.xctest */,
-				7A2D2A402D449E09004C11E0 /* StockTradingTests.xctest */,
+				7A2D29DC2D3DF049004C11E0 /* AlphaTrading.app */,
+				7A2D29F22D3DF050004C11E0 /* AlphaTradingTests.xctest */,
+				7A2D29FC2D3DF050004C11E0 /* AlphaTradingUITests.xctest */,
+				7A2D2A402D449E09004C11E0 /* StockAlphaTradingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -267,9 +267,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7A2D29DB2D3DF049004C11E0 /* Trading */ = {
+		7A2D29DB2D3DF049004C11E0 /* AlphaTrading */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7A2D2A062D3DF050004C11E0 /* Build configuration list for PBXNativeTarget "Trading" */;
+			buildConfigurationList = 7A2D2A062D3DF050004C11E0 /* Build configuration list for PBXNativeTarget "AlphaTrading" */;
 			buildPhases = (
 				7A2D29D82D3DF049004C11E0 /* Sources */,
 				7A2D29D92D3DF049004C11E0 /* Frameworks */,
@@ -279,17 +279,17 @@
 			);
 			dependencies = (
 			);
-			name = Trading;
+			name = AlphaTrading;
 			packageProductDependencies = (
 				7A2D2A102D3DF540004C11E0 /* ApiStocks */,
 			);
 			productName = Trading;
-			productReference = 7A2D29DC2D3DF049004C11E0 /* Trading.app */;
+			productReference = 7A2D29DC2D3DF049004C11E0 /* AlphaTrading.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7A2D29F12D3DF050004C11E0 /* TradingTests */ = {
+		7A2D29F12D3DF050004C11E0 /* AlphaTradingTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7A2D2A092D3DF050004C11E0 /* Build configuration list for PBXNativeTarget "TradingTests" */;
+			buildConfigurationList = 7A2D2A092D3DF050004C11E0 /* Build configuration list for PBXNativeTarget "AlphaTradingTests" */;
 			buildPhases = (
 				7A2D29EE2D3DF050004C11E0 /* Sources */,
 				7A2D29EF2D3DF050004C11E0 /* Frameworks */,
@@ -300,14 +300,14 @@
 			dependencies = (
 				7A2D29F42D3DF050004C11E0 /* PBXTargetDependency */,
 			);
-			name = TradingTests;
+			name = AlphaTradingTests;
 			productName = TradingTests;
-			productReference = 7A2D29F22D3DF050004C11E0 /* TradingTests.xctest */;
+			productReference = 7A2D29F22D3DF050004C11E0 /* AlphaTradingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7A2D29FB2D3DF050004C11E0 /* TradingUITests */ = {
+		7A2D29FB2D3DF050004C11E0 /* AlphaTradingUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7A2D2A0C2D3DF050004C11E0 /* Build configuration list for PBXNativeTarget "TradingUITests" */;
+			buildConfigurationList = 7A2D2A0C2D3DF050004C11E0 /* Build configuration list for PBXNativeTarget "AlphaTradingUITests" */;
 			buildPhases = (
 				7A2D29F82D3DF050004C11E0 /* Sources */,
 				7A2D29F92D3DF050004C11E0 /* Frameworks */,
@@ -318,14 +318,14 @@
 			dependencies = (
 				7A2D29FE2D3DF050004C11E0 /* PBXTargetDependency */,
 			);
-			name = TradingUITests;
+			name = AlphaTradingUITests;
 			productName = TradingUITests;
-			productReference = 7A2D29FC2D3DF050004C11E0 /* TradingUITests.xctest */;
+			productReference = 7A2D29FC2D3DF050004C11E0 /* AlphaTradingUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		7A2D2A3F2D449E09004C11E0 /* StockTradingTests */ = {
+		7A2D2A3F2D449E09004C11E0 /* StockAlphaTradingTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7A2D2A462D449E09004C11E0 /* Build configuration list for PBXNativeTarget "StockTradingTests" */;
+			buildConfigurationList = 7A2D2A462D449E09004C11E0 /* Build configuration list for PBXNativeTarget "StockAlphaTradingTests" */;
 			buildPhases = (
 				7A2D2A3C2D449E09004C11E0 /* Sources */,
 				7A2D2A3D2D449E09004C11E0 /* Frameworks */,
@@ -336,9 +336,9 @@
 			dependencies = (
 				7A2D2A452D449E09004C11E0 /* PBXTargetDependency */,
 			);
-			name = StockTradingTests;
+			name = StockAlphaTradingTests;
 			productName = StockTradingTests;
-			productReference = 7A2D2A402D449E09004C11E0 /* StockTradingTests.xctest */;
+			productReference = 7A2D2A402D449E09004C11E0 /* StockAlphaTradingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -368,7 +368,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7A2D29D72D3DF049004C11E0 /* Build configuration list for PBXProject "Trading" */;
+			buildConfigurationList = 7A2D29D72D3DF049004C11E0 /* Build configuration list for PBXProject "AlphaTrading" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -385,10 +385,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7A2D29DB2D3DF049004C11E0 /* Trading */,
-				7A2D29F12D3DF050004C11E0 /* TradingTests */,
-				7A2D29FB2D3DF050004C11E0 /* TradingUITests */,
-				7A2D2A3F2D449E09004C11E0 /* StockTradingTests */,
+				7A2D29DB2D3DF049004C11E0 /* AlphaTrading */,
+				7A2D29F12D3DF050004C11E0 /* AlphaTradingTests */,
+				7A2D29FB2D3DF050004C11E0 /* AlphaTradingUITests */,
+				7A2D2A3F2D449E09004C11E0 /* StockAlphaTradingTests */,
 			);
 		};
 /* End PBXProject section */
@@ -488,17 +488,17 @@
 /* Begin PBXTargetDependency section */
 		7A2D29F42D3DF050004C11E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7A2D29DB2D3DF049004C11E0 /* Trading */;
+			target = 7A2D29DB2D3DF049004C11E0 /* AlphaTrading */;
 			targetProxy = 7A2D29F32D3DF050004C11E0 /* PBXContainerItemProxy */;
 		};
 		7A2D29FE2D3DF050004C11E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7A2D29DB2D3DF049004C11E0 /* Trading */;
+			target = 7A2D29DB2D3DF049004C11E0 /* AlphaTrading */;
 			targetProxy = 7A2D29FD2D3DF050004C11E0 /* PBXContainerItemProxy */;
 		};
 		7A2D2A452D449E09004C11E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7A2D29DB2D3DF049004C11E0 /* Trading */;
+			target = 7A2D29DB2D3DF049004C11E0 /* AlphaTrading */;
 			targetProxy = 7A2D2A442D449E09004C11E0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -710,7 +710,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trading.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Trading";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlphaTrading.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AlphaTrading";
 			};
 			name = Debug;
 		};
@@ -732,7 +732,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trading.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Trading";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlphaTrading.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AlphaTrading";
 			};
 			name = Release;
 		};
@@ -792,7 +792,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trading.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Trading";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlphaTrading.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AlphaTrading";
 			};
 			name = Debug;
 		};
@@ -810,7 +810,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trading.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Trading";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlphaTrading.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AlphaTrading";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -818,7 +818,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7A2D29D72D3DF049004C11E0 /* Build configuration list for PBXProject "Trading" */ = {
+		7A2D29D72D3DF049004C11E0 /* Build configuration list for PBXProject "AlphaTrading" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7A2D2A042D3DF050004C11E0 /* Debug */,
@@ -827,7 +827,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7A2D2A062D3DF050004C11E0 /* Build configuration list for PBXNativeTarget "Trading" */ = {
+		7A2D2A062D3DF050004C11E0 /* Build configuration list for PBXNativeTarget "AlphaTrading" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7A2D2A072D3DF050004C11E0 /* Debug */,
@@ -836,7 +836,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7A2D2A092D3DF050004C11E0 /* Build configuration list for PBXNativeTarget "TradingTests" */ = {
+		7A2D2A092D3DF050004C11E0 /* Build configuration list for PBXNativeTarget "AlphaTradingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7A2D2A0A2D3DF050004C11E0 /* Debug */,
@@ -845,7 +845,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7A2D2A0C2D3DF050004C11E0 /* Build configuration list for PBXNativeTarget "TradingUITests" */ = {
+		7A2D2A0C2D3DF050004C11E0 /* Build configuration list for PBXNativeTarget "AlphaTradingUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7A2D2A0D2D3DF050004C11E0 /* Debug */,
@@ -854,7 +854,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7A2D2A462D449E09004C11E0 /* Build configuration list for PBXNativeTarget "StockTradingTests" */ = {
+		7A2D2A462D449E09004C11E0 /* Build configuration list for PBXNativeTarget "StockAlphaTradingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7A2D2A472D449E09004C11E0 /* Debug */,

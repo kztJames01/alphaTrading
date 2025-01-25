@@ -23,7 +23,7 @@ class TickerPList: TickerList{
             .appending(component: "\(filename).plist")
     }
     
-    init(saved: [Ticker]? = nil, filename: String = "my_tickers") {
+    init(saved: [Ticker]? = nil, filename: String = "Watchlist") {
         self.saved = saved
         self.filename = filename
     }
