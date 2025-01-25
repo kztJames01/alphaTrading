@@ -6,15 +6,22 @@
 //
 
 import SwiftUI
+import ApiStocks
 
 @main
 struct MaximApp: App {
     let persistenceController = PersistenceController.shared
 
+    @StateObject var appVm = AppViewModel()
+    var searchVM = SearchViewModel()
+    var quoteVM = QuoteViewModel()
+    let stocks = ApiStocks()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            NavigationStack{
+                MainView(quotesVM: quoteVM, searchVM: searchVM)
+            }
+            .environmentObject(appVm)
         }
     }
 }

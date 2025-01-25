@@ -16,6 +16,27 @@
 		7A3E49402D44FC64006C7E3D /* MaximTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E493F2D44FC64006C7E3D /* MaximTests.swift */; };
 		7A3E494A2D44FC64006C7E3D /* MaximUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49492D44FC64006C7E3D /* MaximUITests.swift */; };
 		7A3E494C2D44FC64006C7E3D /* MaximUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E494B2D44FC64006C7E3D /* MaximUITestsLaunchTests.swift */; };
+		7A3E495B2D44FD35006C7E3D /* ApiStocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3E495A2D44FD35006C7E3D /* ApiStocks */; };
+		7A3E495E2D44FD49006C7E3D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3E495D2D44FD49006C7E3D /* XCTest.framework */; platformFilter = ios; };
+		7A3E49602D44FD4F006C7E3D /* ApiStocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3E495F2D44FD4F006C7E3D /* ApiStocks */; };
+		7A3E49692D44FDD7006C7E3D /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49682D44FDD7006C7E3D /* EmptyStateView.swift */; };
+		7A3E496B2D44FE07006C7E3D /* LoadingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E496A2D44FE07006C7E3D /* LoadingStateView.swift */; };
+		7A3E496D2D44FE2C006C7E3D /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E496C2D44FE2C006C7E3D /* ErrorStateView.swift */; };
+		7A3E496F2D44FE79006C7E3D /* StocksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E496E2D44FE79006C7E3D /* StocksApi.swift */; };
+		7A3E49702D44FE79006C7E3D /* StocksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E496E2D44FE79006C7E3D /* StocksApi.swift */; };
+		7A3E49722D44FE8F006C7E3D /* TickerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49712D44FE8F006C7E3D /* TickerList.swift */; };
+		7A3E49742D44FEAC006C7E3D /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49732D44FEAC006C7E3D /* AppViewModel.swift */; };
+		7A3E49762D44FEC3006C7E3D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49752D44FEC3006C7E3D /* SearchViewModel.swift */; };
+		7A3E49782D44FED6006C7E3D /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49772D44FED6006C7E3D /* QuoteViewModel.swift */; };
+		7A3E497A2D44FEFD006C7E3D /* TickerListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49792D44FEFD006C7E3D /* TickerListRowView.swift */; };
+		7A3E497C2D44FF15006C7E3D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E497B2D44FF15006C7E3D /* MainView.swift */; };
+		7A3E497E2D44FF4E006C7E3D /* FetchPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E497D2D44FF4E006C7E3D /* FetchPhase.swift */; };
+		7A3E49802D44FF61006C7E3D /* TickerListRowData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E497F2D44FF61006C7E3D /* TickerListRowData.swift */; };
+		7A3E49822D44FFAB006C7E3D /* Quotes+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49812D44FFAB006C7E3D /* Quotes+Extensions.swift */; };
+		7A3E49842D44FFC9006C7E3D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49832D44FFC9006C7E3D /* Utils.swift */; };
+		7A3E49862D44FFE5006C7E3D /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49852D44FFE5006C7E3D /* Stubs.swift */; };
+		7A3E49882D450000006C7E3D /* MockStocksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49872D450000006C7E3D /* MockStocksApi.swift */; };
+		7A3E498A2D450014006C7E3D /* MockTickerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49892D450014006C7E3D /* MockTickerList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +69,24 @@
 		7A3E49452D44FC64006C7E3D /* MaximUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaximUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A3E49492D44FC64006C7E3D /* MaximUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaximUITests.swift; sourceTree = "<group>"; };
 		7A3E494B2D44FC64006C7E3D /* MaximUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaximUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7A3E495D2D44FD49006C7E3D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7A3E49682D44FDD7006C7E3D /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		7A3E496A2D44FE07006C7E3D /* LoadingStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingStateView.swift; sourceTree = "<group>"; };
+		7A3E496C2D44FE2C006C7E3D /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
+		7A3E496E2D44FE79006C7E3D /* StocksApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksApi.swift; sourceTree = "<group>"; };
+		7A3E49712D44FE8F006C7E3D /* TickerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerList.swift; sourceTree = "<group>"; };
+		7A3E49732D44FEAC006C7E3D /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		7A3E49752D44FEC3006C7E3D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		7A3E49772D44FED6006C7E3D /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
+		7A3E49792D44FEFD006C7E3D /* TickerListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerListRowView.swift; sourceTree = "<group>"; };
+		7A3E497B2D44FF15006C7E3D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		7A3E497D2D44FF4E006C7E3D /* FetchPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPhase.swift; sourceTree = "<group>"; };
+		7A3E497F2D44FF61006C7E3D /* TickerListRowData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerListRowData.swift; sourceTree = "<group>"; };
+		7A3E49812D44FFAB006C7E3D /* Quotes+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quotes+Extensions.swift"; sourceTree = "<group>"; };
+		7A3E49832D44FFC9006C7E3D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		7A3E49852D44FFE5006C7E3D /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
+		7A3E49872D450000006C7E3D /* MockStocksApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStocksApi.swift; sourceTree = "<group>"; };
+		7A3E49892D450014006C7E3D /* MockTickerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTickerList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A3E495B2D44FD35006C7E3D /* ApiStocks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A3E49602D44FD4F006C7E3D /* ApiStocks in Frameworks */,
+				7A3E495E2D44FD49006C7E3D /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +124,7 @@
 				7A3E493E2D44FC64006C7E3D /* MaximTests */,
 				7A3E49482D44FC64006C7E3D /* MaximUITests */,
 				7A3E49272D44FC63006C7E3D /* Products */,
+				7A3E495C2D44FD49006C7E3D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,12 +141,19 @@
 		7A3E49282D44FC63006C7E3D /* Maxim */ = {
 			isa = PBXGroup;
 			children = (
+				7A3E49662D44FDAF006C7E3D /* Extensions */,
+				7A3E49652D44FDA2006C7E3D /* Mocks */,
+				7A3E49642D44FD9A006C7E3D /* Services */,
+				7A3E49632D44FD90006C7E3D /* View-Models */,
+				7A3E49622D44FD89006C7E3D /* Views */,
+				7A3E49612D44FD83006C7E3D /* Models */,
 				7A3E49292D44FC63006C7E3D /* MaximApp.swift */,
 				7A3E492B2D44FC63006C7E3D /* ContentView.swift */,
 				7A3E492D2D44FC64006C7E3D /* Assets.xcassets */,
 				7A3E49322D44FC64006C7E3D /* Persistence.swift */,
 				7A3E49342D44FC64006C7E3D /* Maxim.xcdatamodeld */,
 				7A3E492F2D44FC64006C7E3D /* Preview Content */,
+				7A3E49832D44FFC9006C7E3D /* Utils.swift */,
 			);
 			path = Maxim;
 			sourceTree = "<group>";
@@ -133,6 +183,80 @@
 			path = MaximUITests;
 			sourceTree = "<group>";
 		};
+		7A3E495C2D44FD49006C7E3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E495D2D44FD49006C7E3D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A3E49612D44FD83006C7E3D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E497D2D44FF4E006C7E3D /* FetchPhase.swift */,
+				7A3E497F2D44FF61006C7E3D /* TickerListRowData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7A3E49622D44FD89006C7E3D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E49672D44FDBA006C7E3D /* Common */,
+				7A3E49792D44FEFD006C7E3D /* TickerListRowView.swift */,
+				7A3E497B2D44FF15006C7E3D /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7A3E49632D44FD90006C7E3D /* View-Models */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E49772D44FED6006C7E3D /* QuoteViewModel.swift */,
+				7A3E49752D44FEC3006C7E3D /* SearchViewModel.swift */,
+				7A3E49732D44FEAC006C7E3D /* AppViewModel.swift */,
+			);
+			path = "View-Models";
+			sourceTree = "<group>";
+		};
+		7A3E49642D44FD9A006C7E3D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E496E2D44FE79006C7E3D /* StocksApi.swift */,
+				7A3E49712D44FE8F006C7E3D /* TickerList.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7A3E49652D44FDA2006C7E3D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E49852D44FFE5006C7E3D /* Stubs.swift */,
+				7A3E49872D450000006C7E3D /* MockStocksApi.swift */,
+				7A3E49892D450014006C7E3D /* MockTickerList.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		7A3E49662D44FDAF006C7E3D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E49812D44FFAB006C7E3D /* Quotes+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7A3E49672D44FDBA006C7E3D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7A3E49682D44FDD7006C7E3D /* EmptyStateView.swift */,
+				7A3E496A2D44FE07006C7E3D /* LoadingStateView.swift */,
+				7A3E496C2D44FE2C006C7E3D /* ErrorStateView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +273,9 @@
 			dependencies = (
 			);
 			name = Maxim;
+			packageProductDependencies = (
+				7A3E495A2D44FD35006C7E3D /* ApiStocks */,
+			);
 			productName = Maxim;
 			productReference = 7A3E49262D44FC63006C7E3D /* Maxim.app */;
 			productType = "com.apple.product-type.application";
@@ -167,6 +294,9 @@
 				7A3E493D2D44FC64006C7E3D /* PBXTargetDependency */,
 			);
 			name = MaximTests;
+			packageProductDependencies = (
+				7A3E495F2D44FD4F006C7E3D /* ApiStocks */,
+			);
 			productName = MaximTests;
 			productReference = 7A3E493B2D44FC64006C7E3D /* MaximTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -221,6 +351,9 @@
 				Base,
 			);
 			mainGroup = 7A3E491D2D44FC63006C7E3D;
+			packageReferences = (
+				7A3E49592D44FD35006C7E3D /* XCRemoteSwiftPackageReference "alphaTrading" */,
+			);
 			productRefGroup = 7A3E49272D44FC63006C7E3D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -263,10 +396,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A3E49762D44FEC3006C7E3D /* SearchViewModel.swift in Sources */,
+				7A3E497C2D44FF15006C7E3D /* MainView.swift in Sources */,
+				7A3E49802D44FF61006C7E3D /* TickerListRowData.swift in Sources */,
+				7A3E49742D44FEAC006C7E3D /* AppViewModel.swift in Sources */,
+				7A3E49722D44FE8F006C7E3D /* TickerList.swift in Sources */,
 				7A3E49332D44FC64006C7E3D /* Persistence.swift in Sources */,
+				7A3E498A2D450014006C7E3D /* MockTickerList.swift in Sources */,
+				7A3E49822D44FFAB006C7E3D /* Quotes+Extensions.swift in Sources */,
 				7A3E492C2D44FC63006C7E3D /* ContentView.swift in Sources */,
+				7A3E49692D44FDD7006C7E3D /* EmptyStateView.swift in Sources */,
+				7A3E49882D450000006C7E3D /* MockStocksApi.swift in Sources */,
+				7A3E496F2D44FE79006C7E3D /* StocksApi.swift in Sources */,
+				7A3E496B2D44FE07006C7E3D /* LoadingStateView.swift in Sources */,
+				7A3E49842D44FFC9006C7E3D /* Utils.swift in Sources */,
+				7A3E497A2D44FEFD006C7E3D /* TickerListRowView.swift in Sources */,
+				7A3E497E2D44FF4E006C7E3D /* FetchPhase.swift in Sources */,
 				7A3E49362D44FC64006C7E3D /* Maxim.xcdatamodeld in Sources */,
+				7A3E49782D44FED6006C7E3D /* QuoteViewModel.swift in Sources */,
 				7A3E492A2D44FC63006C7E3D /* MaximApp.swift in Sources */,
+				7A3E496D2D44FE2C006C7E3D /* ErrorStateView.swift in Sources */,
+				7A3E49862D44FFE5006C7E3D /* Stubs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A3E49402D44FC64006C7E3D /* MaximTests.swift in Sources */,
+				7A3E49702D44FE79006C7E3D /* StocksApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +747,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7A3E49592D44FD35006C7E3D /* XCRemoteSwiftPackageReference "alphaTrading" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kztJames01/alphaTrading";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7A3E495A2D44FD35006C7E3D /* ApiStocks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A3E49592D44FD35006C7E3D /* XCRemoteSwiftPackageReference "alphaTrading" */;
+			productName = ApiStocks;
+		};
+		7A3E495F2D44FD4F006C7E3D /* ApiStocks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A3E49592D44FD35006C7E3D /* XCRemoteSwiftPackageReference "alphaTrading" */;
+			productName = ApiStocks;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		7A3E49342D44FC64006C7E3D /* Maxim.xcdatamodeld */ = {

@@ -1,0 +1,15 @@
+{
+  "originHash" : "83e5acc370aa3c5be20e129c4146ecb58d607ccddecee286c53077c1737b0c92",
+  "pins" : [
+    {
+      "identity" : "alphatrading",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kztJames01/alphaTrading",
+      "state" : {
+        "branch" : "main",
+        "revision" : "5ec2ef5fccdd014945eca784e8d211bd6a0c10f8"
+      }
+    }
+  ],
+  "version" : 3
+}
