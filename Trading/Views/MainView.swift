@@ -15,26 +15,88 @@ struct MainView: View {
     @StateObject var searchVM: SearchViewModel
     
     var body: some View {
-        VStack{
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello World")
+        tickerListView
+            .listStyle(.plain)
+            .overlay { overlayView }
+            .toolbar{
+                titleToolBar
+                attributionToolBar
+            }
+            .searchable(text: $searchVM.query)
+            .refreshable {
+                await quotesVM.fetchQuotes(tickers: appVm.stockWatchlist)
+            }
+            .task(id: appVm.stockWatchlist) { await quotesVM.fetchQuotes(tickers: appVm.stockWatchlist)}
+    }
+    
+    private var tickerListView: some View{
+        List{
+            ForEach(appVm.stockWatchlist) {
+                ticker in TickerListRowView(data:
+                        .init(symbol: ticker.symbol, name: ticker.name, price: quotesVM.priceForTicker(ticker), type: .main))
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    
+                }
+            } .onDelete{ appVm.removeWatchlistItems(atOffsets: $0)
+            }
+        }.padding(.bottom)
+    }
+    
+    @ViewBuilder
+    private var overlayView: some View{
+        if appVm.stockWatchlist.isEmpty{
+            EmptyStateView(text: appVm.emptyTickersText)
         }
-        .padding()
+    }
+    
+    private var titleToolBar: some ToolbarContent{
+        #if os(macOS)
+        ToolbarItem(placement: .navigation){
+            VStack(alignment: .leading, spacing: 4){
+                Text(appVm.titleText)
+                Text(appVm.subtitleText).foregroundColor(Color(.systemGray))
+            }.font(.title2.weight(.heavy))
+                .padding(.vertical,20)
+            
+        }
+        #else
+        ToolbarItem(placement: .navigationBarLeading){
+            VStack(alignment: .leading, spacing: 4){
+                Text(appVm.titleText)
+                Text(appVm.subtitleText).foregroundColor(Color(.systemGray))
+            }.font(.title2.weight(.heavy))
+                .padding(.vertical,10)
+        }
+        #endif
+    }
+    
+    private var attributionToolBar: some ToolbarContent{
+        ToolbarItem(placement: .automatic){
+            HStack{
+                Button{
+                    
+                } label: {
+                    Text(appVm.attributionText)
+                        .font(.caption.weight(.heavy))
+                        .foregroundColor(Color(.systemGray))
+                } .buttonStyle(.plain)
+    
+            }
+        }
     }
 }
 
 struct MainView_Previews: PreviewProvider{
     @StateObject static var appVM: AppViewModel = {
         let vm = AppViewModel()
-        vm.tickers = Ticker.stubs
+        vm.stockWatchlist = Ticker.stubs
         return vm
     }()
     
     @StateObject static var emptyAppVM: AppViewModel = {
         let vm = AppViewModel()
-        vm.tickers = []
+        vm.stockWatchlist = []
         return vm
     }()
     
