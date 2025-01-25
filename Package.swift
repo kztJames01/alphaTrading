@@ -23,11 +23,10 @@ let package = Package(
         .target(
             name: "ApiStocks",
             swiftSettings: [
-                .define("SIMULATOR_ARCHITECTURE", .when(platforms: [.iOS], configuration: .debug))
+                .define("SIMULATOR_ARCHITECTURE", .when(platforms: [.iOS,.macOS, .tvOS, .watchOS], configuration: .debug))
             ],
             linkerSettings: [
                     .unsafeFlags(["-target", "arm64-apple-ios-simulator"], .when(platforms: [.iOS])),
-                    .unsafeFlags(["-target", "x86_64-apple-ios-simulator"], .when(platforms: [.iOS])),
                     .unsafeFlags(["-target", "arm64-apple-macosx"], .when(platforms: [.macOS]))
                 ]
             ),
