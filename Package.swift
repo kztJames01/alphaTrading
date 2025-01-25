@@ -21,7 +21,13 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         
         .target(
-            name: "ApiStocks"
+            name: "ApiStocks",
+            swiftSettings: [
+                .define("SIMULATOR_ARCHITECTURE", .when(platforms: [.iOS,.macOS, .tvOS, .watchOS], configuration: .debug))
+            ],
+            linkerSettings: [
+                    .unsafeFlags(["-target", "arm64-apple-ios-simulator"])
+                ]
             ),
         
         .executableTarget(name: "ApiStocksExec", dependencies: ["ApiStocks"]),
