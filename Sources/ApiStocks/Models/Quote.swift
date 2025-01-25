@@ -44,7 +44,7 @@ public struct QuoteResponse: Decodable {
     }
 }
 
-public struct Quote: Codable, Identifiable, Hashable {
+public struct Quote: Decodable, Identifiable, Hashable {
     
     public let id = UUID()
     
