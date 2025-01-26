@@ -15,7 +15,7 @@ extension Quote{
     }
     
     var regularDiffText: String?{
-        guard let text = Utils.format(value: regularMarketChange) else{return nil}
+        guard let text = Utils.format(value: regularMarketChange) else{ return nil }
         return text.hasPrefix("-") ? text: "+\(text)"
     }
 }

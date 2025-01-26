@@ -54,31 +54,25 @@ class SearchViewModel: ObservableObject{
     func searchTickers() async{
         let searchQuery = trimmedQuery
         guard !searchQuery.isEmpty else{return}
-        phase = .fetching
+        DispatchQueue.main.async{
+            self.phase = .initial
+        }
         
         do {
-            let ticker = try? await stocksApi.searchData(search: searchQuery)
+            let ticker = try? await stocksApi.searchData(search: searchQuery,isEquity: true)
             if searchQuery != trimmedQuery { return }
-            if ((ticker?.isEmpty) != nil){
-                DispatchQueue.main.async{
-                    self.phase = .empty
-                }
+            if ((ticker?.isEmpty) != false){
+                phase = .empty
             }else {
-                DispatchQueue.main.async{
-                    self.phase = .success(ticker!)
-                }
+                phase = .success(ticker!)  
             }
         } catch {
             if searchQuery != trimmedQuery { return }
             print(error.localizedDescription)
-            DispatchQueue.main.async {
-                        self.phase = .failure(error)
-            }
+            phase = .failure(error)
         }
     }
     
     
     
 }
-
-

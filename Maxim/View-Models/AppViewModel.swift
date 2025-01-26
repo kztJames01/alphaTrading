@@ -81,4 +81,10 @@ class AppViewModel: ObservableObject{
     private func addToWatchList(item: Ticker){
         stockWatchlist.append(item)
     }
+    
+    func openYahooFinance(){
+        let url = URL(string:"https://finance.yahoo.com")!
+        guard UIApplication.shared.canOpenURL(url) else { return }
+        UIApplication.shared.open(url)
+    }
 }
