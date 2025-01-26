@@ -1,35 +1,7 @@
 // The Swift Programming Language
 
 import Foundation
-
-
-public struct EnvLoader {
-    static func load(fileName: String = ".env") {
-        guard let filePath = FileManager.default.currentDirectoryPath.appending("/\(fileName)") as String? else {
-            print("⚠️ .env file not found at path: \(fileName)")
-            return
-        }
-        
-        do {
-            let contents = try String(contentsOfFile: filePath, encoding: .utf8)
-            let lines = contents.split(separator: "\n")
-            
-            for line in lines {
-                let parts = line.split(separator: "=", maxSplits: 1)
-                guard parts.count == 2 else { continue }
-                
-                let key = parts[0].trimmingCharacters(in: .whitespacesAndNewlines)
-                let value = parts[1].trimmingCharacters(in: .whitespacesAndNewlines)
-                
-                if !key.isEmpty && !value.isEmpty {
-                    setenv(key, value, 1) // Add to environment
-                }
-            }
-        } catch {
-            print("⚠️ Error loading .env file: \(error)")
-        }
-    }
-}
+import DotEnv
 
 
 public protocol API{
@@ -54,7 +26,10 @@ public struct ApiStocks:API{
     
    
     private var headersMap: [String:[String:String]]{
-        EnvLoader.load()
+        
+        let path = "/Users/kaungzawthant/Desktop/alpha/ApiStocks/.env"
+        let env = try! DotEnv.read(path: path)
+        env.load()
         guard let apiKey = ProcessInfo.processInfo.environment["API_KEY"] else{
             fatalError("API Key not found in environment variables")
         }
