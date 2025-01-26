@@ -16,7 +16,7 @@ struct ApiStocksExec{
             let quote = try await api.fetchQuotes(symbol: "AAPL")
             print(quote)
             
-            let searchResp = try await api.searchData(search: "AA")
+            let searchResp = try await api.searchData(search: "AAPL")
             print(searchResp)
         
             let history = try await api.fetchHistoryData(symbol: "AAPL", interval: .fifteenMin, diffandsplits: false)

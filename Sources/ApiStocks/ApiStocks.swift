@@ -34,10 +34,10 @@ public struct EnvLoader {
 
 public protocol API{
     func fetchHistoryData(symbol: String, interval: HistoryRange,diffandsplits: Bool) async throws -> [(MetaData,[TimeStamp])]
-    func searchData(search: String) async throws -> [Ticker]
+    func searchData(search: String, isEquity: Bool) async throws -> [Ticker]
     func fetchQuotes(symbol:String) async throws -> [Quote]
     func fetchQuotesRawData(symbol:String) async throws -> (Data,URLResponse)
-    func searchDataRawData(search:String) async throws -> (Data, URLResponse)
+    func searchDataRawData(search:String, isEquity:Bool) async throws -> (Data, URLResponse)
     func fetchHistoryRawData(symbol:String, interval: HistoryRange,diffandsplits: Bool) async throws -> (Data, URLResponse)
     func fetchChartData(symbol:String, interval:ChartInterval, range: ChartRange, region: String) async throws -> ChartData?
     func fetchChartRawData(symbol:String, interval:ChartInterval, range: ChartRange, region: String) async throws -> (Data,URLResponse)
@@ -103,7 +103,7 @@ public struct ApiStocks:API{
         return urlComp.url
     }
     
-    public func searchData(search: String) async throws -> [Ticker] {
+    public func searchData(search: String,isEquity: Bool=true) async throws -> [Ticker] {
         guard let url = urlForSearch(search: search) else{
             throw ApiError.invalidURL
         }
@@ -113,10 +113,15 @@ public struct ApiStocks:API{
         if let error = response.error {
             throw ApiError.httpStatusCodeFailed(statusCode: statusCode, errors: error)
         }
-        return response.data ?? []
+        let data = response.data ?? []
+        if isEquity {
+            return data.filter { ($0.typeDisp ?? "").localizedCaseInsensitiveCompare("EQUITY") == .orderedSame }
+        } else{
+            return data
+        }
     }
     
-    public func searchDataRawData(search:String) async throws -> (Data, URLResponse){
+    public func searchDataRawData(search:String, isEquity: Bool) async throws -> (Data, URLResponse){
         guard let url = urlForSearch(search: search) else{
             throw ApiError.invalidURL
         }
