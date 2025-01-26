@@ -10,7 +10,7 @@ import ApiStocks
 
 struct MainView: View {
     
-    @EnvironmentObject var appVm: AppViewModel
+    @EnvironmentObject var appVM: AppViewModel
     @StateObject var quotesVM: QuoteViewModel
     @StateObject var searchVM: SearchViewModel
     
@@ -24,29 +24,29 @@ struct MainView: View {
             }
             .searchable(text: $searchVM.query)
             .refreshable {
-                await quotesVM.fetchQuotes(tickers: appVm.stockWatchlist)
+                await quotesVM.fetchQuotes(tickers: appVM.stockWatchlist)
             }
-            .task(id: appVm.stockWatchlist) { await quotesVM.fetchQuotes(tickers: appVm.stockWatchlist)}
+            .task(id: appVM.stockWatchlist) { await quotesVM.fetchQuotes(tickers: appVM.stockWatchlist)}
     }
     
     private var tickerListView: some View{
         List{
-            ForEach(appVm.stockWatchlist) {
-                ticker in TickerListRowView(data:
-                        .init(symbol: ticker.symbol, name: ticker.name, price: quotesVM.priceForTicker(ticker), type: .main))
+            ForEach(appVM.stockWatchlist) {
+                item in TickerListRowView(data:
+                        .init(symbol: item.symbol, name: item.name, price: quotesVM.priceForTicker(item), type: .main))
                 .contentShape(Rectangle())
                 .onTapGesture {
                     
                 }
-            } .onDelete{ appVm.removeWatchlistItems(atOffsets: $0)
+            } .onDelete{ appVM.removeWatchlistItems(atOffsets: $0)
             }
         }.padding(.bottom)
     }
     
     @ViewBuilder
     private var overlayView: some View{
-        if appVm.stockWatchlist.isEmpty{
-            EmptyStateView(text: appVm.emptyTickersText)
+        if appVM.stockWatchlist.isEmpty{
+            EmptyStateView(text: appVM.emptyTickersText)
         }
     }
     
@@ -54,8 +54,8 @@ struct MainView: View {
         #if os(macOS)
         ToolbarItem(placement: .navigation){
             VStack(alignment: .leading, spacing: 4){
-                Text(appVm.titleText)
-                Text(appVm.subtitleText).foregroundColor(Color(.systemGray))
+                Text(appVM.titleText)
+                Text(appVM.subtitleText).foregroundColor(Color(.systemGray))
             }.font(.title2.weight(.heavy))
                 .padding(.vertical,20)
             
@@ -63,8 +63,8 @@ struct MainView: View {
         #else
         ToolbarItem(placement: .navigationBarLeading){
             VStack(alignment: .leading, spacing: 4){
-                Text(appVm.titleText)
-                Text(appVm.subtitleText).foregroundColor(Color(.systemGray))
+                Text(appVM.titleText)
+                Text(appVM.subtitleText).foregroundColor(Color(.systemGray))
             }.font(.title2.weight(.heavy))
                 .padding(.vertical,10)
         }
@@ -77,7 +77,7 @@ struct MainView: View {
                 Button{
                     
                 } label: {
-                    Text(appVm.attributionText)
+                    Text(appVM.attributionText)
                         .font(.caption.weight(.heavy))
                         .foregroundColor(Color(.systemGray))
                 } .buttonStyle(.plain)

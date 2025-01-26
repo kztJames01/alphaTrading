@@ -16,9 +16,7 @@
 		7A3E49402D44FC64006C7E3D /* MaximTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E493F2D44FC64006C7E3D /* MaximTests.swift */; };
 		7A3E494A2D44FC64006C7E3D /* MaximUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49492D44FC64006C7E3D /* MaximUITests.swift */; };
 		7A3E494C2D44FC64006C7E3D /* MaximUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E494B2D44FC64006C7E3D /* MaximUITestsLaunchTests.swift */; };
-		7A3E495B2D44FD35006C7E3D /* ApiStocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3E495A2D44FD35006C7E3D /* ApiStocks */; };
 		7A3E495E2D44FD49006C7E3D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3E495D2D44FD49006C7E3D /* XCTest.framework */; platformFilter = ios; };
-		7A3E49602D44FD4F006C7E3D /* ApiStocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3E495F2D44FD4F006C7E3D /* ApiStocks */; };
 		7A3E49692D44FDD7006C7E3D /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49682D44FDD7006C7E3D /* EmptyStateView.swift */; };
 		7A3E496B2D44FE07006C7E3D /* LoadingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E496A2D44FE07006C7E3D /* LoadingStateView.swift */; };
 		7A3E496D2D44FE2C006C7E3D /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E496C2D44FE2C006C7E3D /* ErrorStateView.swift */; };
@@ -37,6 +35,8 @@
 		7A3E49862D44FFE5006C7E3D /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49852D44FFE5006C7E3D /* Stubs.swift */; };
 		7A3E49882D450000006C7E3D /* MockStocksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49872D450000006C7E3D /* MockStocksApi.swift */; };
 		7A3E498A2D450014006C7E3D /* MockTickerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49892D450014006C7E3D /* MockTickerList.swift */; };
+		7AC7CD4C2D459ABE0097DC3F /* ApiStocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7AC7CD4B2D459ABE0097DC3F /* ApiStocks */; };
+		7AC7CD4E2D459ADA0097DC3F /* ApiStocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7AC7CD4D2D459ADA0097DC3F /* ApiStocks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A3E495B2D44FD35006C7E3D /* ApiStocks in Frameworks */,
+				7AC7CD4C2D459ABE0097DC3F /* ApiStocks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A3E49602D44FD4F006C7E3D /* ApiStocks in Frameworks */,
+				7AC7CD4E2D459ADA0097DC3F /* ApiStocks in Frameworks */,
 				7A3E495E2D44FD49006C7E3D /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,7 +274,7 @@
 			);
 			name = Maxim;
 			packageProductDependencies = (
-				7A3E495A2D44FD35006C7E3D /* ApiStocks */,
+				7AC7CD4B2D459ABE0097DC3F /* ApiStocks */,
 			);
 			productName = Maxim;
 			productReference = 7A3E49262D44FC63006C7E3D /* Maxim.app */;
@@ -295,7 +295,7 @@
 			);
 			name = MaximTests;
 			packageProductDependencies = (
-				7A3E495F2D44FD4F006C7E3D /* ApiStocks */,
+				7AC7CD4D2D459ADA0097DC3F /* ApiStocks */,
 			);
 			productName = MaximTests;
 			productReference = 7A3E493B2D44FC64006C7E3D /* MaximTests.xctest */;
@@ -352,7 +352,7 @@
 			);
 			mainGroup = 7A3E491D2D44FC63006C7E3D;
 			packageReferences = (
-				7A3E49592D44FD35006C7E3D /* XCRemoteSwiftPackageReference "alphaTrading" */,
+				7AC7CD4A2D459ABE0097DC3F /* XCRemoteSwiftPackageReference "alphaTrading" */,
 			);
 			productRefGroup = 7A3E49272D44FC63006C7E3D /* Products */;
 			projectDirPath = "";
@@ -492,6 +492,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = x86_64;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -589,6 +590,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -618,6 +620,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -749,7 +752,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7A3E49592D44FD35006C7E3D /* XCRemoteSwiftPackageReference "alphaTrading" */ = {
+		7AC7CD4A2D459ABE0097DC3F /* XCRemoteSwiftPackageReference "alphaTrading" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kztJames01/alphaTrading";
 			requirement = {
@@ -760,14 +763,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7A3E495A2D44FD35006C7E3D /* ApiStocks */ = {
+		7AC7CD4B2D459ABE0097DC3F /* ApiStocks */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7A3E49592D44FD35006C7E3D /* XCRemoteSwiftPackageReference "alphaTrading" */;
+			package = 7AC7CD4A2D459ABE0097DC3F /* XCRemoteSwiftPackageReference "alphaTrading" */;
 			productName = ApiStocks;
 		};
-		7A3E495F2D44FD4F006C7E3D /* ApiStocks */ = {
+		7AC7CD4D2D459ADA0097DC3F /* ApiStocks */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7A3E49592D44FD35006C7E3D /* XCRemoteSwiftPackageReference "alphaTrading" */;
+			package = 7AC7CD4A2D459ABE0097DC3F /* XCRemoteSwiftPackageReference "alphaTrading" */;
 			productName = ApiStocks;
 		};
 /* End XCSwiftPackageProductDependency section */

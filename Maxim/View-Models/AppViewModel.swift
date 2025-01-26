@@ -33,6 +33,7 @@ class AppViewModel: ObservableObject{
     
         self.subtitleText = subtitleDateFormatter.string(from: Date())
         self.tickerList = tickerList
+        loadWatchlistItems()
     }
     
     private func loadWatchlistItems(){

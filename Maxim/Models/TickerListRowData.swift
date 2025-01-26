@@ -13,7 +13,7 @@ struct TickerListRowData{
     
     enum RowType{
         case main
-        case search(isSaved: Bool, onButtonTapped:()-> Void)
+        case search(isSaved: Bool, onButtonTapped:()-> ())
     }
     
     let symbol: String?
