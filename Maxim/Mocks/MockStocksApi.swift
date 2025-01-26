@@ -13,7 +13,7 @@ import ApiStocks
 public struct MockStocksApi: StocksApi{
     
     public var stubbedSearchTickerCallback: (() async throws -> [Ticker])!
-    public func searchData(search: String) async throws -> [Ticker] {
+    public func searchData(search: String,isEquity: Bool=true) async throws -> [Ticker] {
         try await stubbedSearchTickerCallback()
     }
     
