@@ -102,5 +102,3 @@ struct TickerListRowView_Previews: PreviewProvider{
         .init(symbol: "TSLA", name: "Tesla", price: ("250", "+0.9"), type: rowType)
     }
 }
-
-

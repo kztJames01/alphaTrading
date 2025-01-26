@@ -48,34 +48,37 @@ struct MainView: View {
         if appVM.stockWatchlist.isEmpty{
             EmptyStateView(text: appVM.emptyTickersText)
         }
+        if searchVM.isSearching{
+            SearchView(searchVM: searchVM)
+        }
     }
     
     private var titleToolBar: some ToolbarContent{
         #if os(macOS)
         ToolbarItem(placement: .navigation){
-            VStack(alignment: .leading, spacing: 4){
+            VStack(alignment: .leading, spacing: -4){
                 Text(appVM.titleText)
                 Text(appVM.subtitleText).foregroundColor(Color(.systemGray))
             }.font(.title2.weight(.heavy))
-                .padding(.vertical,20)
+                .padding(.bottom)
             
         }
         #else
         ToolbarItem(placement: .navigationBarLeading){
-            VStack(alignment: .leading, spacing: 4){
+            VStack(alignment: .leading, spacing: -4){
                 Text(appVM.titleText)
                 Text(appVM.subtitleText).foregroundColor(Color(.systemGray))
             }.font(.title2.weight(.heavy))
-                .padding(.vertical,10)
+                .padding(.bottom)
         }
         #endif
     }
     
     private var attributionToolBar: some ToolbarContent{
-        ToolbarItem(placement: .automatic){
+        ToolbarItem(placement: .bottomBar){
             HStack{
                 Button{
-                    
+                    appVM.openYahooFinance()
                 } label: {
                     Text(appVM.attributionText)
                         .font(.caption.weight(.heavy))
@@ -89,27 +92,28 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider{
     @StateObject static var appVM: AppViewModel = {
-        let vm = AppViewModel()
-        vm.stockWatchlist = Ticker.stubs
-        return vm
+        var mock = MockTickerList()
+        mock.stubbedLoad = {Ticker.stubs}
+        return AppViewModel(tickerList: mock)
     }()
     
     @StateObject static var emptyAppVM: AppViewModel = {
-        let vm = AppViewModel()
-        vm.stockWatchlist = []
-        return vm
+        var mock = MockTickerList()
+        mock.stubbedLoad = { [] }
+        return AppViewModel(tickerList: mock)
+        
     }()
     
     @StateObject static var quotesVM: QuoteViewModel = {
-        let vm = QuoteViewModel()
-        vm.quotesDict = Quote.stubsDict
-        return vm
+        var mock = MockStocksApi()
+        mock.stubbedFetchQuoteCallback = {Quote.stubs}
+        return QuoteViewModel(stocksApi: mock)
     }()
     
     @StateObject static var searchVM : SearchViewModel = {
-        let vm = SearchViewModel()
-        vm.query = ""
-        return vm
+        var mock = MockStocksApi()
+        mock.stubbedSearchTickerCallback = {Ticker.stubs}
+        return SearchViewModel(stocksApi: mock)
     }()
     
     static var previews: some View{
