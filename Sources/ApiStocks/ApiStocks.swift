@@ -1,56 +1,9 @@
 // The Swift Programming Language
 
 import Foundation
-import Firebase
-import FirebaseRemoteConfig
 
-public class FirebaseManager{
-    public static func configureFirebase(){
-        if let path = Bundle.module.path(forResource: "GoogleService-Info", ofType: "plist") {
-                    let options = NSDictionary(contentsOfFile: path)
-            print("Firebase configuration loaded: \(String(describing: options))")
-                    FirebaseApp.configure(options: FirebaseOptions(contentsOfFile: path)!)
-                } else {
-                    print("GoogleService-Info.plist not found")
-                }
-    }
-}
 
-public class ApiKeyManager {
-    private static let apiKeyKey = "API_KEY"
-    
-    // Fetch and store the API key from Firebase Remote Config
-    public static func fetchAndStoreApiKey(completion: @escaping (Bool) -> Void) {
-        let remoteConfig = RemoteConfig.remoteConfig()
-        let settings = RemoteConfigSettings()
-        settings.minimumFetchInterval = 0
-        settings.fetchTimeout = 10
-        remoteConfig.configSettings = settings
-        
-        remoteConfig.fetch { (status, error) in
-            if status == .success {
-                remoteConfig.activate()
-                let apiKey = remoteConfig["API_KEY"].stringValue
-                if let apiKey = apiKey {
-                    // Store the API key securely (using UserDefaults for simplicity)
-                    UserDefaults.standard.set(apiKey, forKey: apiKeyKey)
-                    completion(true)
-                } else {
-                    print("API key not found in remote config")
-                    completion(false)
-                }
-            } else {
-                print("Failed to fetch remote config: \(error?.localizedDescription ?? "Unknown Error")")
-                completion(false)
-            }
-        }
-    }
-    
-    // Get the stored API key (returns nil if not found)
-    public static func getApiKey() -> String? {
-        return UserDefaults.standard.string(forKey: apiKeyKey)
-    }
-}
+
 
 public protocol API{
     func fetchHistoryData(symbol: String, interval: HistoryRange,diffandsplits: Bool) async throws -> [(MetaData,[TimeStamp])]
@@ -71,34 +24,21 @@ public struct ApiStocks:API{
         return decoder
     }
     
-    private let apiKey: String
-    
     private var headersMap: [String:[String:String]]{
         return [
             "primary":[
-                "x-rapidapi-key": apiKey,
+                "x-rapidapi-key": "c5d836857cmshba68fc722dba282p1df907jsn5110b8a4e164",
             "x-rapidapi-host": "yahoo-finance15.p.rapidapi.com"
         ],
             "secondary":[
-            "x-rapidapi-key": apiKey,
+            "x-rapidapi-key": "c5d836857cmshba68fc722dba282p1df907jsn5110b8a4e164",
             "x-rapidapi-host": "yh-finance.p.rapidapi.com"
         ],
         ]
     }
     
-    public static func createInstance() async throws -> ApiStocks{
-        FirebaseManager.configureFirebase()
+    public init(){
         
-        return try await withCheckedThrowingContinuation { continuation in
-            ApiKeyManager.fetchAndStoreApiKey{
-                success in
-                if success, let apiKey = ApiKeyManager.getApiKey(){
-                    continuation.resume(returning: ApiStocks(apiKey: apiKey))
-                }else{
-                    continuation.resume(throwing: NSError(domain: "ApiStocks", code: 1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch API successfully"]))
-                }
-            }
-        }
     }
     private let baseURL = "https://yahoo-financial15.p.rapidapi.com"
     

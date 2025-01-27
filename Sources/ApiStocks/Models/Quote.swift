@@ -46,7 +46,7 @@ public struct QuoteResponse: Decodable {
 
 public struct Quote: Decodable, Identifiable, Hashable {
     
-    public var id = UUID()
+    public let id = UUID()
     
     public let currency: String?
     public let marketState: String?

@@ -6,13 +6,15 @@
 //
 import Foundation
 import ApiStocks
+
+
 @main
 struct ApiStocksExec{
-
+    
     static func main() async{
             
         do{
-            let api = try await ApiStocks.createInstance()
+            let api = ApiStocks()
             let quote = try await api.fetchQuotes(symbol: "AAPL")
             print(quote)
             

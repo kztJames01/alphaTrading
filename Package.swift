@@ -15,21 +15,12 @@ let package = Package(
             targets: ["ApiStocks"]),
         .executable(name: "ApiStocksExec", targets: ["ApiStocksExec"])
     ],
-    dependencies: [
-            .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "10.15.0") // Firebase SDK
-        ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         
         .target(
-            name: "ApiStocks",
-            dependencies: [
-                .product(name: "FirebaseRemoteConfig", package: "firebase-ios-sdk")
-                        ],
-            resources: [
-                .process("GoogleService-Info.plist")
-            ]
+            name: "ApiStocks"
             ),
         
         .executableTarget(name: "ApiStocksExec", dependencies: ["ApiStocks"]),
