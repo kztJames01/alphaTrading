@@ -10,3 +10,4 @@ DerivedData/
 .env
 Secrets.swift
 GoogleService-Info.plist
+Package.resolved
