@@ -16,7 +16,7 @@ let package = Package(
         .executable(name: "ApiStocksExec", targets: ["ApiStocksExec"])
     ],
     dependencies: [
-            .package(url: "https://github.com/swiftpackages/DotEnv.git", from: "3.0.0"),
+            .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "10.15.0") // Firebase SDK
         ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -25,8 +25,11 @@ let package = Package(
         .target(
             name: "ApiStocks",
             dependencies: [
-                            .product(name: "DotEnv", package: "DotEnv"),
-                        ]
+                .product(name: "FirebaseRemoteConfig", package: "firebase-ios-sdk")
+                        ],
+            resources: [
+                .process("GoogleService-Info.plist")
+            ]
             ),
         
         .executableTarget(name: "ApiStocksExec", dependencies: ["ApiStocks"]),

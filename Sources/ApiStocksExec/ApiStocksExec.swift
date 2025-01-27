@@ -8,11 +8,11 @@ import Foundation
 import ApiStocks
 @main
 struct ApiStocksExec{
-    private static let api = ApiStocks()
+
     static func main() async{
             
         do{
-            
+            let api = try await ApiStocks.createInstance()
             let quote = try await api.fetchQuotes(symbol: "AAPL")
             print(quote)
             

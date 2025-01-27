@@ -9,3 +9,4 @@ DerivedData/
 .netrc
 .env
 Secrets.swift
+GoogleService-Info.plist
