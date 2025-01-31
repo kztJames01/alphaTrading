@@ -7,12 +7,45 @@
 
 import SwiftUI
 
-struct QuoteDetailRowColumnView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct QuoteDetailRowColumnItem: Identifiable{
+    
+    let id = UUID()
+    let rows: [RowItem]
+    
+    struct RowItem: Identifiable{
+        let id = UUID()
+        let title: String
+        let value: String
     }
 }
 
-#Preview {
-    QuoteDetailRowColumnView()
+struct QuoteDetailRowColumnView: View {
+    
+    let item: QuoteDetailRowColumnItem
+    var body: some View {
+        VStack(spacing: 6){
+            ForEach(item.rows){ row in
+                HStack(alignment: .lastTextBaseline){
+                    Text(row.title).foregroundColor(.gray)
+                    Spacer()
+                    Text(row.value)
+                }
+            }
+        }
+        .frame(width: 120)
+    }
 }
+
+struct QuoteDetailRowColumnView_Previews: PreviewProvider {
+    static var previews: some View {
+        QuoteDetailRowColumnView(item: .init(rows: [
+            .init(title: "Open", value: "164.24"),
+            .init(title: "Open", value: "164.24"),
+            .init(title: "Open", value: "164.24"),
+
+        ]))
+        
+        .previewLayout(.sizeThatFits)
+    }
+}
+
