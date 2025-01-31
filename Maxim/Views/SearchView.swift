@@ -7,6 +7,8 @@
 
 import SwiftUI
 import ApiStocks
+
+@MainActor
 struct SearchView: View {
     
     @EnvironmentObject var appVM: AppViewModel
@@ -67,7 +69,10 @@ struct SearchView_Previews: PreviewProvider {
     
     @StateObject static var loadingSearchVM: SearchViewModel = {
         var mock = MockStocksApi()
-        mock.stubbedSearchTickerCallback = { await withCheckedContinuation {_ in} }
+        mock.stubbedSearchTickerCallback = {
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+            return []
+        }
         return SearchViewModel(query: "Apple", stocksApi: mock)
     }()
     
@@ -108,10 +113,7 @@ struct SearchView_Previews: PreviewProvider {
             }.searchable(text: $loadingSearchVM.query)
                 .previewDisplayName("Loading...")
             
-            NavigationStack {
-                SearchView(quotesVM: quotesVM, searchVM: stubbedSearchVM)
-            }.searchable(text: $errorSearchVM.query)
-                .previewDisplayName("Error 404")
+            
         }.environmentObject(appVM)
     }
 }
