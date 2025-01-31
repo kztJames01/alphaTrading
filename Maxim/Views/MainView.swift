@@ -56,7 +56,7 @@ struct MainView: View {
     private var titleToolBar: some ToolbarContent{
         #if os(macOS)
         ToolbarItem(placement: .navigation){
-            VStack(alignment: .leading, spacing: -4){
+            HStack(alignment: .leading, spacing: -4){
                 Text(appVM.titleText)
                 Text(appVM.subtitleText).foregroundColor(Color(.systemGray))
             }.font(.title2.weight(.heavy))
@@ -65,8 +65,9 @@ struct MainView: View {
         }
         #else
         ToolbarItem(placement: .navigationBarLeading){
-            VStack(alignment: .leading, spacing: -4){
+            HStack(alignment: .top, spacing: -2){
                 Text(appVM.titleText)
+                Spacer()
                 Text(appVM.subtitleText).foregroundColor(Color(.systemGray))
             }.font(.title2.weight(.heavy))
                 .padding(.bottom)
