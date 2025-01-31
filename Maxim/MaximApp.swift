@@ -8,13 +8,15 @@
 import SwiftUI
 import ApiStocks
 
+
+
 @main
 struct MaximApp: App {
     let persistenceController = PersistenceController.shared
 
     @StateObject var appVm = AppViewModel()
-    var searchVM = SearchViewModel()
-    var quoteVM = QuoteViewModel()
+    @StateObject var searchVM = SearchViewModel()
+    @StateObject var quoteVM = QuoteViewModel()
     let stocks = ApiStocks()
     var body: some Scene {
         WindowGroup {
@@ -25,3 +27,5 @@ struct MaximApp: App {
         }
     }
 }
+
+

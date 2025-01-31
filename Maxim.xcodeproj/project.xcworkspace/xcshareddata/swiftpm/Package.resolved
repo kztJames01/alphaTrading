@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kztJames01/alphaTrading",
       "state" : {
-        "branch" : "main",
-        "revision" : "0ee365fba390bd82fec3dd73dd431b6a0b575c34"
+        "branch" : "secondary",
+        "revision" : "7690af347bafaa00f825f04be5328335c35bac3e"
       }
     }
   ],

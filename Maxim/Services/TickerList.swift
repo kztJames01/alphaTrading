@@ -41,6 +41,9 @@ class TickerPList: TickerList{
     }
     
     func load() async throws -> [Ticker] {
+        guard FileManager.default.fileExists(atPath: url.path)else{
+            return []
+        }
         let data = try Data(contentsOf: url)
         let current = try PropertyListDecoder().decode([Ticker].self, from: data)
         self.saved = current

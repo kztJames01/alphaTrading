@@ -35,9 +35,12 @@
 		7A3E49862D44FFE5006C7E3D /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49852D44FFE5006C7E3D /* Stubs.swift */; };
 		7A3E49882D450000006C7E3D /* MockStocksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49872D450000006C7E3D /* MockStocksApi.swift */; };
 		7A3E498A2D450014006C7E3D /* MockTickerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E49892D450014006C7E3D /* MockTickerList.swift */; };
+		7AAE68C02D474AEC00F1AE38 /* ApiStocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7AAE68BF2D474AEC00F1AE38 /* ApiStocks */; };
+		7AAE68C32D4752B000F1AE38 /* StockTickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE68C22D4752B000F1AE38 /* StockTickerView.swift */; };
+		7AAE68C72D47532200F1AE38 /* TickerQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE68C62D47531900F1AE38 /* TickerQuoteViewModel.swift */; };
+		7AAE68C92D4A32C300F1AE38 /* Foundation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE68C82D4A32C300F1AE38 /* Foundation+Extensions.swift */; };
+		7AAE68CB2D4A8A2E00F1AE38 /* QuoteDetailRowColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE68CA2D4A8A2E00F1AE38 /* QuoteDetailRowColumnView.swift */; };
 		7AAF404A2D45F03E00FA6C2B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAF40492D45F03E00FA6C2B /* SearchView.swift */; };
-		7AC7CD4C2D459ABE0097DC3F /* ApiStocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7AC7CD4B2D459ABE0097DC3F /* ApiStocks */; };
-		7AC7CD4E2D459ADA0097DC3F /* ApiStocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7AC7CD4D2D459ADA0097DC3F /* ApiStocks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +91,12 @@
 		7A3E49852D44FFE5006C7E3D /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
 		7A3E49872D450000006C7E3D /* MockStocksApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStocksApi.swift; sourceTree = "<group>"; };
 		7A3E49892D450014006C7E3D /* MockTickerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTickerList.swift; sourceTree = "<group>"; };
+		7AAE68C22D4752B000F1AE38 /* StockTickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTickerView.swift; sourceTree = "<group>"; };
+		7AAE68C62D47531900F1AE38 /* TickerQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerQuoteViewModel.swift; sourceTree = "<group>"; };
+		7AAE68C82D4A32C300F1AE38 /* Foundation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extensions.swift"; sourceTree = "<group>"; };
+		7AAE68CA2D4A8A2E00F1AE38 /* QuoteDetailRowColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailRowColumnView.swift; sourceTree = "<group>"; };
 		7AAF40492D45F03E00FA6C2B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		7AD2B8282D473CAE00E58FBC /* Maxim.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Maxim.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AC7CD4C2D459ABE0097DC3F /* ApiStocks in Frameworks */,
+				7AAE68C02D474AEC00F1AE38 /* ApiStocks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AC7CD4E2D459ADA0097DC3F /* ApiStocks in Frameworks */,
 				7A3E495E2D44FD49006C7E3D /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +150,7 @@
 		7A3E49282D44FC63006C7E3D /* Maxim */ = {
 			isa = PBXGroup;
 			children = (
+				7AD2B8282D473CAE00E58FBC /* Maxim.entitlements */,
 				7A3E49662D44FDAF006C7E3D /* Extensions */,
 				7A3E49652D44FDA2006C7E3D /* Mocks */,
 				7A3E49642D44FD9A006C7E3D /* Services */,
@@ -205,6 +213,7 @@
 		7A3E49622D44FD89006C7E3D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7AAE68C12D47527C00F1AE38 /* Stock-Ticker-Sheet-Views */,
 				7A3E49672D44FDBA006C7E3D /* Common */,
 				7A3E49792D44FEFD006C7E3D /* TickerListRowView.swift */,
 				7A3E497B2D44FF15006C7E3D /* MainView.swift */,
@@ -216,6 +225,7 @@
 		7A3E49632D44FD90006C7E3D /* View-Models */ = {
 			isa = PBXGroup;
 			children = (
+				7AAE68C62D47531900F1AE38 /* TickerQuoteViewModel.swift */,
 				7A3E49772D44FED6006C7E3D /* QuoteViewModel.swift */,
 				7A3E49752D44FEC3006C7E3D /* SearchViewModel.swift */,
 				7A3E49732D44FEAC006C7E3D /* AppViewModel.swift */,
@@ -246,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				7A3E49812D44FFAB006C7E3D /* Quotes+Extensions.swift */,
+				7AAE68C82D4A32C300F1AE38 /* Foundation+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -258,6 +269,15 @@
 				7A3E496C2D44FE2C006C7E3D /* ErrorStateView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		7AAE68C12D47527C00F1AE38 /* Stock-Ticker-Sheet-Views */ = {
+			isa = PBXGroup;
+			children = (
+				7AAE68C22D4752B000F1AE38 /* StockTickerView.swift */,
+				7AAE68CA2D4A8A2E00F1AE38 /* QuoteDetailRowColumnView.swift */,
+			);
+			path = "Stock-Ticker-Sheet-Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,7 +297,7 @@
 			);
 			name = Maxim;
 			packageProductDependencies = (
-				7AC7CD4B2D459ABE0097DC3F /* ApiStocks */,
+				7AAE68BF2D474AEC00F1AE38 /* ApiStocks */,
 			);
 			productName = Maxim;
 			productReference = 7A3E49262D44FC63006C7E3D /* Maxim.app */;
@@ -298,7 +318,6 @@
 			);
 			name = MaximTests;
 			packageProductDependencies = (
-				7AC7CD4D2D459ADA0097DC3F /* ApiStocks */,
 			);
 			productName = MaximTests;
 			productReference = 7A3E493B2D44FC64006C7E3D /* MaximTests.xctest */;
@@ -355,7 +374,7 @@
 			);
 			mainGroup = 7A3E491D2D44FC63006C7E3D;
 			packageReferences = (
-				7AC7CD4A2D459ABE0097DC3F /* XCRemoteSwiftPackageReference "alphaTrading" */,
+				7AAE68BE2D474AEC00F1AE38 /* XCRemoteSwiftPackageReference "alphaTrading" */,
 			);
 			productRefGroup = 7A3E49272D44FC63006C7E3D /* Products */;
 			projectDirPath = "";
@@ -402,15 +421,18 @@
 				7A3E49762D44FEC3006C7E3D /* SearchViewModel.swift in Sources */,
 				7A3E497C2D44FF15006C7E3D /* MainView.swift in Sources */,
 				7A3E49802D44FF61006C7E3D /* TickerListRowData.swift in Sources */,
+				7AAE68C92D4A32C300F1AE38 /* Foundation+Extensions.swift in Sources */,
 				7A3E49742D44FEAC006C7E3D /* AppViewModel.swift in Sources */,
 				7A3E49722D44FE8F006C7E3D /* TickerList.swift in Sources */,
 				7A3E49332D44FC64006C7E3D /* Persistence.swift in Sources */,
 				7A3E498A2D450014006C7E3D /* MockTickerList.swift in Sources */,
 				7A3E49822D44FFAB006C7E3D /* Quotes+Extensions.swift in Sources */,
 				7A3E492C2D44FC63006C7E3D /* ContentView.swift in Sources */,
+				7AAE68C72D47532200F1AE38 /* TickerQuoteViewModel.swift in Sources */,
 				7A3E49692D44FDD7006C7E3D /* EmptyStateView.swift in Sources */,
 				7AAF404A2D45F03E00FA6C2B /* SearchView.swift in Sources */,
 				7A3E49882D450000006C7E3D /* MockStocksApi.swift in Sources */,
+				7AAE68C32D4752B000F1AE38 /* StockTickerView.swift in Sources */,
 				7A3E496F2D44FE79006C7E3D /* StocksApi.swift in Sources */,
 				7A3E496B2D44FE07006C7E3D /* LoadingStateView.swift in Sources */,
 				7A3E49842D44FFC9006C7E3D /* Utils.swift in Sources */,
@@ -419,6 +441,7 @@
 				7A3E49362D44FC64006C7E3D /* Maxim.xcdatamodeld in Sources */,
 				7A3E49782D44FED6006C7E3D /* QuoteViewModel.swift in Sources */,
 				7A3E492A2D44FC63006C7E3D /* MaximApp.swift in Sources */,
+				7AAE68CB2D4A8A2E00F1AE38 /* QuoteDetailRowColumnView.swift in Sources */,
 				7A3E496D2D44FE2C006C7E3D /* ErrorStateView.swift in Sources */,
 				7A3E49862D44FFE5006C7E3D /* Stubs.swift in Sources */,
 			);
@@ -585,6 +608,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Maxim/Maxim.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Maxim/Preview Content\"";
@@ -615,6 +639,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Maxim/Maxim.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Maxim/Preview Content\"";
@@ -758,25 +783,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7AC7CD4A2D459ABE0097DC3F /* XCRemoteSwiftPackageReference "alphaTrading" */ = {
+		7AAE68BE2D474AEC00F1AE38 /* XCRemoteSwiftPackageReference "alphaTrading" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kztJames01/alphaTrading";
 			requirement = {
-				branch = main;
+				branch = secondary;
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7AC7CD4B2D459ABE0097DC3F /* ApiStocks */ = {
+		7AAE68BF2D474AEC00F1AE38 /* ApiStocks */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7AC7CD4A2D459ABE0097DC3F /* XCRemoteSwiftPackageReference "alphaTrading" */;
-			productName = ApiStocks;
-		};
-		7AC7CD4D2D459ADA0097DC3F /* ApiStocks */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7AC7CD4A2D459ABE0097DC3F /* XCRemoteSwiftPackageReference "alphaTrading" */;
+			package = 7AAE68BE2D474AEC00F1AE38 /* XCRemoteSwiftPackageReference "alphaTrading" */;
 			productName = ApiStocks;
 		};
 /* End XCSwiftPackageProductDependency section */

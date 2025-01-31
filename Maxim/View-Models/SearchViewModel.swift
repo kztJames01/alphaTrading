@@ -10,6 +10,7 @@ import Combine
 import ApiStocks
 import Foundation
 
+@MainActor
 class SearchViewModel: ObservableObject{
     @Published var query: String = ""
     @Published var phase: FetchPhase<[Ticker]> = .initial
@@ -29,7 +30,7 @@ class SearchViewModel: ObservableObject{
     private var cancellables = Set<AnyCancellable>()
     private var stocksApi : StocksApi
     
-    init(query: String = " ", stocksApi: StocksApi = ApiStocks() ) {
+    init(query: String = "", stocksApi: StocksApi = ApiStocks() ) {
         self.query = query
         self.stocksApi = stocksApi
         
@@ -47,29 +48,31 @@ class SearchViewModel: ObservableObject{
         
         $query
             .filter { $0.isEmpty }
-            .sink { [weak self] _ in self?.phase = .initial}
+            .sink { [weak self] _ in
+                self?.phase = .initial
+            }
             .store(in: &cancellables)
     }
     
     func searchTickers() async{
         let searchQuery = trimmedQuery
-        guard !searchQuery.isEmpty else{return}
-        DispatchQueue.main.async{
-            self.phase = .initial
-        }
+        guard !searchQuery.isEmpty else{ return }
+        phase = .fetching
         
         do {
             let ticker = try? await stocksApi.searchData(search: searchQuery,isEquity: true)
             if searchQuery != trimmedQuery { return }
-            if ((ticker?.isEmpty) != false){
+            if((ticker?.isEmpty)!){
                 phase = .empty
-            }else {
-                phase = .success(ticker!)  
+            }else{
+                phase = .success(ticker!)
             }
+            
         } catch {
             if searchQuery != trimmedQuery { return }
             print(error.localizedDescription)
             phase = .failure(error)
+            
         }
     }
     

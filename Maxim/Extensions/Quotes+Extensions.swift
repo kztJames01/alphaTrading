@@ -63,7 +63,7 @@ extension Quote{
         Utils.format(value: fiftyTwoWeekHigh) ?? "-"
     }
     
-    var ffiveTwoWeekLowText: String{
+    var fiftyTwoWeekLowText: String{
         Utils.format(value: fiftyTwoWeekLow) ?? "-"
     }
     
@@ -97,7 +97,7 @@ extension Quote{
             ]),
             QuoteDetailRowColumnItem(rows:[
                 QuoteDetailRowColumnItem.RowItem(title: "52W H", value: fiftyTwoWeekHighText),
-                QuoteDetailRowColumnItem.RowItem(title: "52W L", value: ffiveTwoWeekLowText),
+                QuoteDetailRowColumnItem.RowItem(title: "52W L", value: fiftyTwoWeekLowText),
                 QuoteDetailRowColumnItem.RowItem(title: "Avg Vol", value: avgVolText),
             ]),
             QuoteDetailRowColumnItem(rows:[

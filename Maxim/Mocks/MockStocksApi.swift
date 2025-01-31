@@ -14,7 +14,8 @@ public struct MockStocksApi: StocksApi{
     
     public var stubbedSearchTickerCallback: (() async throws -> [Ticker])!
     public func searchData(search: String,isEquity: Bool=true) async throws -> [Ticker] {
-        try await stubbedSearchTickerCallback()
+        let result = try await stubbedSearchTickerCallback()
+        return await MainActor.run { result }
     }
     
     public var stubbedFetchQuoteCallback: (() async throws -> [Quote])!
