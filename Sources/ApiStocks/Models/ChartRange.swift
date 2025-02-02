@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum ChartRange: String, CaseIterable{
+public enum ChartRange: String, CaseIterable, Hashable{
     
     case oneDay = "1d"
     case oneWeek = "5d"
@@ -32,7 +32,7 @@ public enum ChartRange: String, CaseIterable{
         }
     }
 }
-public enum ChartInterval: String, CaseIterable{
+public enum ChartInterval: String, CaseIterable, Hashable{
     case fiveMin = "5m"
     case fifteenMin = "15m"
     case thirtyMin = "30m"
