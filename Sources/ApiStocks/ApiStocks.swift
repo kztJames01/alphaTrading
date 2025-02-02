@@ -6,7 +6,7 @@ import FirebaseRemoteConfig
 
 public class FirebaseManager{
     public static func configureFirebase(){
-        if let path = Bundle.module.path(forResource: "GoogleService-Info", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") {
                     let options = NSDictionary(contentsOfFile: path)
             print("Firebase configuration loaded: \(String(describing: options))")
                     FirebaseApp.configure(options: FirebaseOptions(contentsOfFile: path)!)
